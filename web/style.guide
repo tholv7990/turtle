@@ -1,0 +1,7 @@
+text-white: #efefef;
+text-gray: #767574;
+text-red: #c95150;
+text-yellow: #e8c363;
+
+box-gray: #292929;
+box-gray-light: hsla(0,0%,100%,.1)

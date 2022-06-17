@@ -1,0 +1,54 @@
+<div class="box-primary h-full w-full flex flex-row items-center justify-center" [formGroup]="form">
+    <div class="rounded-xl overflow-hidden h-3/5 w-[36rem] ">
+  
+      <div class="fieldset">
+  
+        <div class="text-xl text-yellow font-bold uppercase !mb-8"  >Turtle Trading</div>
+  
+        <div class="flex flex-row items-center justify-start mb-8">
+          <legend (click)="onLogin()"  class="uppercase text-secondary mr-5 cursor-pointer">Login</legend>
+          <legend class="uppercase">Register</legend> 
+        </div>
+       
+        <div class="field">
+          <label class="required">User Name</label>
+  
+          <div class="value">
+            <input type="text" placeholder="<Name>" formControlName="name" />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="required">Email</label>
+  
+          <div class="value">
+            <input type="text" placeholder="<Email>" formControlName="email" />
+          </div>
+        </div>
+  
+        <div class="field">
+          <label class="required">PassWord</label>
+  
+          <div class="value">
+            <input type="password" placeholder="<PassWord>" formControlName="password" />
+          </div>
+        </div>
+  
+        <div class="field mt-6">
+          <label class="required">Confirm PassWord</label>
+  
+          <div class="value">
+            <input type="password" placeholder="<Confirm PassWord>" formControlName="confirmPassword" />
+          </div>
+        </div>
+
+        <div class="text-red text-xs" *ngIf="form.get('email').hasError('exists')">
+          {{form.get('email')?.errors?.message}}.
+        </div>
+  
+        <button (click)="onRegister()" [disabled]="form?.invalid" class="btn w-full bg-yellow h-12 mt-8">Register</button>
+      </div>
+  
+    </div>
+   
+  </div>

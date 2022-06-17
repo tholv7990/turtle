@@ -1,0 +1,112 @@
+<div class="discipline" [formGroup]="form">
+
+    <div class="discipline-left">
+        <legend>Content</legend>
+    </div>
+    <div class="discipline-right">
+
+        <div class="section border" formGroupName="numberOfTrade">
+            <legend>Number of Trade(s)</legend>
+
+            <div class="field-row">
+                <label>Day</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Day>" formControlName="day" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Week</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Week>" formControlName="week" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Month</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Month>" formControlName="month" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section  border" formGroupName="profit">
+            <legend>Target Profit</legend>
+
+            <div class="field-row">
+                <label>Day</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Day>" formControlName="day" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Week</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Week>" formControlName="week" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Month</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Month>" formControlName="month" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section  border" formGroupName="loss">
+            <legend>Allow Loss</legend>
+
+            <div class="field-row">
+                <label>Day</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Day>" formControlName="day" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Week</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Week>" formControlName="week" />
+                </div>
+            </div>
+
+            <div class="field-row">
+                <label>Month</label>
+
+                <div class="value">
+                    <input type="number" min="0" placeholder="<Month>" formControlName="month" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section border" formGroupName="time">
+            <legend>Trading Time</legend>
+            <div class="field-row">
+                <label>
+                    Work day starts:
+                </label>
+                <p-calendar formControlName="open" showTime="true" placeholder="<Work day starts>" [hourFormat]="12" [timeOnly]="true"></p-calendar>
+            </div>
+            <div class="field-row">
+                <label>
+                    Work day ends:
+                </label>
+                <p-calendar formControlName="close" showTime="true" placeholder="<Work day ends>" [hourFormat]="12" timeOnly="true"></p-calendar>
+            </div>
+        </div>
+    </div>
+
+</div>
