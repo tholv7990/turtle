@@ -1,0 +1,43 @@
+<div class="bg-primary h-full w-full flex flex-row items-center justify-center" [formGroup]="form">
+    <div class="p-3 rounded-xl overflow-hidden h-3/5 w-[36rem] ">
+
+      <div class="fieldset">
+
+        <div class="text-xl text-yellow font-bold uppercase !mb-8"  >Turtle Trading</div>
+
+        <div class="flex flex-row items-center justify-start mb-8">
+          <legend class="uppercase mr-5">Login</legend>
+          <legend (click)="onRegister()" class="uppercase cursor-pointer text-secondary">Register</legend> 
+        </div>
+       
+        <!-- <div class="flex flex-row"> <div class="text-primary">Primary</div> - <div class="text-secondary">Secondary</div> - <div class="text-tertiary">Tertiary</div> </div> -->
+
+        <div class="field">
+          <label class="required">Email</label>
+
+          <div class="value">
+            <input type="text" placeholder="<Email>" formControlName="email" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="required">Password</label>
+
+          <div class="value">
+            <input type="password" placeholder="<Password>" formControlName="password" />
+          </div>
+        </div>
+
+        <div *ngIf="error" class="text-red text-xs">
+          {{error}}
+        </div>
+
+        <button (click)="onLogin()" [disabled]="form?.invalid" class="btn w-full bg-yellow h-12 mt-8">Login</button>
+
+       
+      </div>
+
+    </div>
+
+   
+  </div>

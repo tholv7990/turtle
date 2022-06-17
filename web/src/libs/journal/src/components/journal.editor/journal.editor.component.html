@@ -1,0 +1,14 @@
+<div class="flex flex-col h-full w-full">
+
+    <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-2"><i class="fa fa-expand  text-light-10 dark:text-dark-10"></i></button>
+
+    <div class="flex-fill">
+test
+    </div>
+
+    <div class="flex-auto flex flex-row items-center justify-between">
+        <button (click)="close.emit()" class="btn w-4 text-lg"><i class="fa fa-times"></i></button>
+        <button class="btn w-4 text-lg"><i class="fa fa-check text-green-light dark:text-green-light"></i></button>
+    </div>
+
+</div>

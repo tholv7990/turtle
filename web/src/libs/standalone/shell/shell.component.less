@@ -1,0 +1,23 @@
+
+
+   
+shell {
+    @apply h-full flex flex-col relative;
+    .flex-fill {
+        flex: 1;
+    }
+
+    .flex-auto {
+        flex: 0 0 auto;
+    }
+
+    .shell-content {
+        @apply relative h-full;
+
+        > * {
+            @apply absolute top-0 bottom-0 left-0 right-0 p-2;
+        }
+    }
+
+}
+   

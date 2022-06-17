@@ -1,0 +1,50 @@
+@layer base {
+
+    p-calendar {
+
+        .p-inputtext {
+            @apply  !bg-light-100 !text-primary dark:!bg-dark-100 outline-none  border-[1px] text-sm px-3 h-11 w-full rounded hover:border-yellow-light hover:dark:border-yellow-dark placeholder:text-light-30 placeholder:dark:text-dark-30;
+        }
+    }
+
+
+    p-table {
+        @apply   !border-none;
+
+        th {
+            @apply !bg-light-100 dark:!bg-dark-100  !border-light-30 dark:!border-dark-30 !border-solid !border-t-[1px] !text-light-20 dark:!text-dark-20 !p-2 !font-semibold !text-xs;
+        }
+
+        td {
+            @apply   !border-light-30 dark:!border-dark-30 !border-solid !border-t-[1px] !text-light-10 dark:!text-dark-10 !p-2 !font-semibold !text-sm;
+        }
+
+        tr {
+            @apply  !bg-light-100 dark:!bg-dark-100 last:border-none hover:!bg-light-200 hover:dark:!bg-dark-200 cursor-pointer;
+
+            &:hover {
+                @apply !bg-light-200 dark:!bg-dark-200;
+            }
+        }
+    }
+
+}
+
+
+    .p-dialog {
+        @apply !bg-light-300 dark:!bg-dark-300;
+    }
+
+    .p-dialog-header {
+        @apply !hidden;
+    }
+
+    .p-dialog-content {
+        @apply !p-2 !bg-light-200 dark:!bg-dark-200 text-light-10 dark:text-dark-10 h-full w-full;
+    }
+
+
+.p-dialog-mask {
+    background-color: #0006;
+    @apply !pointer-events-auto;
+}

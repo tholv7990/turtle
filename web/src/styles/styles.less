@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+    html, body {
+
+        @apply antialiased bg-secondary  !text-primary   overflow-hidden h-screen relative;
+
+       
+
+    }
+
+   
+
+    input, textarea {
+        @apply bg-light-100  text-primary dark:bg-dark-100   outline-none border-light-30 dark:border-dark-30 border-[1px] text-sm px-3 h-11 w-full rounded hover:border-yellow-light hover:dark:border-yellow-dark placeholder:text-light-30 placeholder:dark:text-dark-30;
+        
+    }
+
+    label {
+        @apply text-secondary  text-sm w-full block mb-1;
+    }
+
+    legend {
+        @apply text-lg text-primary font-bold;
+    }
+
+
+    .flex-auto {
+        flex: 0 0 auto;
+    }
+
+    .flex-fill {
+        flex: 1;
+    }
+  
+
+   
+}
+
+
+
+@layer components { 
+
+    .text-primary {
+        @apply text-light-10 dark:text-dark-10;
+    }
+
+    .text-reverse-primary {
+        @apply text-dark-10 dark:text-light-10;
+    }
+
+    .text-secondary {
+        @apply text-light-20 dark:text-dark-20;
+    }
+
+    .text-tertiary {
+        @apply text-light-30 dark:text-dark-30;
+    }
+
+    .bg-primary {
+        @apply bg-light-100 dark:bg-dark-100;
+    }
+
+    .bg-secondary {
+        @apply bg-light-200 dark:bg-dark-200;
+    }
+
+    .bg-tertiary {
+        @apply bg-light-300 dark:bg-dark-300;
+    }
+
+    .border {
+        @apply border-light-30 dark:border-dark-30 border-solid border-[1px]; 
+    }
+
+    .text-yellow {
+        @apply text-yellow-light dark:text-yellow-dark;
+    }
+
+    .text-green {
+        @apply text-green-light dark:text-green-dark;
+    }
+
+    .text-red {
+        @apply text-red-light dark:text-red-dark;
+    }
+
+    .text-blue {
+        @apply text-blue-light dark:text-blue-dark;
+    }
+
+
+    .bg-yellow {
+        @apply bg-yellow-light dark:bg-yellow-dark;
+    }
+
+    .bg-green {
+        @apply bg-green-light dark:bg-green-dark;
+    }
+
+    .bg-red {
+        @apply bg-red-light dark:bg-red-dark;
+    }
+
+    .bg-blue {
+        @apply bg-blue-light dark:bg-blue-dark;
+    }
+
+    .required {
+        &:after {
+            content: ' *';
+            @apply text-red;
+        }
+
+       
+    }
+
+    .text-hover {
+        &:hover {
+            @apply text-yellow;
+        }
+    }
+
+    .ng-invalid .ng-dirty {
+        @apply !border-red-light dark:!border-red-dark;
+    }
+    
+    .nav-bar {
+        @apply flex flex-row justify-between items-center h-10 w-full mb-2;
+    }
+   
+}
+
+.flex-fill {
+    flex: 1;
+}
+
+.flex-auto {
+    flex: 0 0 auto;
+}
+
+
+
+* {
+    font-family: 'Open Sans', sans-serif;
+  } 
+
+
+
+@import './default.less';
+@import './fieldset.less';
+@import './button.less';
+@import './primeng.less';
+@import './component.less';

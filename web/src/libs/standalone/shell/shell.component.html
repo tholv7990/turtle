@@ -1,0 +1,31 @@
+<nav class="bg-primary border-b-[1px] border  h-14 flex flex-row items-center p-2 w-full">
+    <div class="text-yellow font-bold uppercase flex-auto">Turtle Trading</div>
+ 
+    <div class="flex-fill flex ml-5 font-semibold text-sm">
+
+        <ng-container *ngFor="let item of menu">
+            <div  routerLink="/{{item?.path}}" routerLinkActive="active" [ngClass]="{ 'bg-tertiary': isActive(item?.path)} " class="mr-4 text-hover cursor-pointer px-3 py-1 rounded">{{item?.data?.title}}</div>
+        </ng-container>
+       
+    </div>
+
+    <div class="flex flex-auto">
+        <div class="text-xs mr-2">Account Balance: <span class="text-yellow">{{10000 | currency}}</span> </div>
+        <div class="text-xs">Open Order(s): <span class="text-yellow">4</span></div>
+    </div>
+ 
+    <div class="flex-auto flex">
+       
+        <button  class="btn text-primary !text-hover text-sm font-bold">   <i class="fa fa-user-circle-o"></i></button>
+
+        <button (click)="onSwitchDisplayMode()"  class="btn text-primary !text-hover text-sm font-bold w-4 flex items-center justify-center">   <i class="fa fa-moon-o" [ngClass]="{'fa-moon-o' : dark === 'light', 'fa-sun-o': dark === 'dark' }"></i></button>
+
+
+        <button routerLink="/login" routerLinkActive="active" class="btn text-primary !text-hover text-sm font-bold">   <i class="fa fa-sign-out"></i></button>
+     
+    </div>
+ </nav>
+
+ <div class="shell-content">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
