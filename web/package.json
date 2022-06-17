@@ -33,7 +33,7 @@
     "linq": "^4.0.0",
     "luxon": "^2.4.0",
     "primeicons": "^5.0.0",
-    "primeng": "^13.3.3",
+    "primeng": "^13.4.1",
     "rxjs": "^7.5.5",
     "tailwindcss": "^3.0.24",
     "tslib": "^2.3.0",

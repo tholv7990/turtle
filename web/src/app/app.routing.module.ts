@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent, RegisterComponent, ShellComponent } from '@libs/standalone';
+import { AuthGuard } from './helpers';
 
 const routes: Routes = [
   {
     path: '', component: ShellComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'journal',
