@@ -1,14 +1,15 @@
 <div class="flex flex-col h-full w-full">
 
-    <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-2"><i class="fa fa-expand  text-light-10 dark:text-dark-10"></i></button>
+    <!-- <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-8"><i class="fa fa-arrows-alt  text-light-10 dark:text-dark-10"></i></button> -->
+    <button (click)="close.emit()" class="btn w-4 text-xl absolute top-2 right-2"><i class="fa fa-times"></i></button>
 
     <div class="flex-fill">
 test
     </div>
 
-    <div class="flex-auto flex flex-row items-center justify-between">
-        <button (click)="close.emit()" class="btn w-4 text-lg"><i class="fa fa-times"></i></button>
-        <button class="btn w-4 text-lg"><i class="fa fa-check text-green-light dark:text-green-light"></i></button>
+    <div class="flex-auto flex flex-row items-center justify-end">
+       
+        <button class="btn w-10 text-sm text-green-light dark:text-green-light">Save</button>
     </div>
 
 </div>
