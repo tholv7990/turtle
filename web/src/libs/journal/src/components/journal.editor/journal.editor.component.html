@@ -2,21 +2,32 @@
 
     <!-- <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-8"><i class="fa fa-arrows-alt  text-light-10 dark:text-dark-10"></i></button> -->
 
-    <div class="flex-auto flex flex-row items-center justify-between">
+    <div class="flex-auto flex flex-row items-center justify-between text-primary">
         <span class="font-semibold">New Trade</span>
         <button (click)="close.emit()" class="btn w-4 text-xl"><i class="fa fa-times"></i></button>
     </div>
 
-    <div class="flex-fill overflow-auto">
+    <div class="flex-fill overflow-auto p-2">
         <div class="fieldset">
 
-            <div class="field">
-                <label>Account</label>
-                <div class="value">
-                    <ng-select placeholder="<Accounts>" [items]="accounts" [searchable]='true' [clearable]='true'  [multiple]="false" [hideSelected]="true">
-                    </ng-select>
+            <div class="field-row">
+                <div class="field">
+                    <label>Account</label>
+                    <div class="value">
+                        <ng-select placeholder="<Accounts>" [items]="accounts" [searchable]='true' [clearable]='true'  [multiple]="false" [hideSelected]="true">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Account</label>
+                    <div class="value">
+                        <ng-select placeholder="<Accounts>" [items]="accounts" [searchable]='true' [clearable]='true'  [multiple]="false" [hideSelected]="true">
+                        </ng-select>
+                    </div>
                 </div>
             </div>
+           
         </div>
     </div>
 
@@ -24,7 +35,7 @@
 
     <div class="flex-auto flex flex-row items-center justify-end">
 
-        <button class="btn w-10 text-sm text-green-light dark:text-green-light">Save</button>
+        <button class="btn w-10 text-sm bg-blue-light dark:bg-blue-dark text-dark-10">Save</button>
     </div>
 
 </div>
