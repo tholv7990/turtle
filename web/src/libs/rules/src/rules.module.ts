@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DisciplineDashboardComponent } from './components';
-import { DisciplineService } from './services';
+import {  RulesDashboardComponent } from './components';
+import {  RulesService } from './services';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 
 const routes = [
-  { path: '', component: DisciplineDashboardComponent }
+  { path: '', component: RulesDashboardComponent }
 ];
 
 
 @NgModule({
   declarations: [
-    DisciplineDashboardComponent
+    RulesDashboardComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +22,7 @@ const routes = [
     CalendarModule
   ],
   providers: [
-    DisciplineService
+    RulesService
   ]
 })
-export class DisciplineModule { }
+export class RulesModule { }

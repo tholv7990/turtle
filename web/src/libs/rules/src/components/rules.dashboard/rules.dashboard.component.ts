@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 import { FormBuilder,  FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'discipline-dashboard',
-  templateUrl: './discipline.dashboard.component.html',
-  styleUrls: ['./discipline.dashboard.component.less'],
+  selector: 'rules-dashboard',
+  templateUrl: './rules.dashboard.component.html',
+  styleUrls: ['./rules.dashboard.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DisciplineDashboardComponent implements OnInit {
+export class RulesDashboardComponent implements OnInit {
 
 
   public form : FormGroup;

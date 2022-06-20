@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'rules',
-        loadChildren: () => import('../libs/discipline').then(m => m.DisciplineModule),
+        loadChildren: () => import('../libs/rules').then(m => m.RulesModule),
         data: { title: 'Rules', animation: 'disciplinePage' }
       },
       {
