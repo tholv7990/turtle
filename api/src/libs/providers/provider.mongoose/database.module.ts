@@ -52,8 +52,6 @@ export class DatabaseModule {
       })
     }
 
-    console.log('providers: ', providers)
-
     return providers;
 
 

@@ -21,7 +21,7 @@
         <button (click)="onSwitchDisplayMode()"  class="btn text-primary !text-hover text-sm font-bold w-4 flex items-center justify-center">   <i class="fa fa-moon-o" [ngClass]="{'fa-moon-o' : dark === 'light', 'fa-sun-o': dark === 'dark' }"></i></button>
 
 
-        <button routerLink="/login" routerLinkActive="active" class="btn text-primary !text-hover text-sm font-bold">   <i class="fa fa-sign-out"></i></button>
+        <button (click)="onLogout()" class="btn text-primary !text-hover text-sm font-bold">   <i class="fa fa-sign-out"></i></button>
      
     </div>
  </nav>

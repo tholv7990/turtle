@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import {  Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,8 +24,6 @@ export class AppComponent {
     }
 
   }
-
-
 
 
   public logout(){}

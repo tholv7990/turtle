@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IsActiveMatchOptions, Router, RouterModule } from '@angular/router';
+import { IsActiveMatchOptions, Router, RouterModule, RouterStateSnapshot } from '@angular/router';
 
 
 
@@ -26,7 +26,7 @@ export class ShellComponent implements OnInit {
     fragment: 'ignored'
 };
 
-  constructor(public router: Router) {
+  constructor(private router: Router) {
 
     this.menu = this.router.config[0].children as any[];
    
@@ -52,6 +52,13 @@ export class ShellComponent implements OnInit {
     }
 
     this.dark = localStorage.getItem('theme');
+  }
+
+  public onLogout(){
+
+    localStorage.removeItem('auth_token');
+
+    this.router.navigate(['/login']);
   }
 
 }

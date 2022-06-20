@@ -6,6 +6,7 @@ import {TableModule} from 'primeng/table';
 import { DateTimePipe } from '@libs/standalone.pipes/date.time.pipe';
 import {DialogModule} from 'primeng/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {DropdownModule} from 'primeng/dropdown';
 
  const routes = [
   { path: '', component: JournalDashboardComponent }
@@ -22,7 +23,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TableModule,
     DateTimePipe,
     DialogModule,
-    NgSelectModule
+    NgSelectModule,
+    DropdownModule
   ]
 })
 export class JournalModule { }
