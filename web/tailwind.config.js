@@ -15,19 +15,19 @@ module.exports = {
         },
         light: {
           100: '#ffffff',
-          200: '#f5f5f5',
+          200: '#fafafa',
           300: '#e9ecef',
           10: '#1e2328',
           20: '#737d8d', 
           30: '#6f6f6f' 
         },
         yellow: {
-          dark: '#FAD338',
-          light: '#f0b909'
+          dark: '#f0b90ob',
+          light: '#ecb708'
         },
         red: {
           dark: '#c9252d',
-          light: '#b20002'
+          light: '#CF304A'
         },
         green: {
           dark: '#2f9d78',

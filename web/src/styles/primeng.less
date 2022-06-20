@@ -44,6 +44,9 @@
     }
 
 
+
+
+
 .p-dialog-mask {
     background-color: rgba(0, 0, 0, 0.5);
     @apply !pointer-events-auto;
@@ -72,9 +75,15 @@ p-dropdown {
     }
 
     .p-focus {
-        @apply !shadow-none !border-yellow-light dark:!border-yellow-dark border-[1px];
+        @apply !shadow-none !border-yellow-light dark:!border-yellow-dark hover:!border-yellow-light hover:dark:!border-yellow-dark border-[1px];
     }
    
+    .p-dropdown:not(.p-disabled) {
+       @apply hover:!border-yellow-light hover:dark:!border-yellow-dark;
+    }
 
+    .p-inputtext {
+       @apply flex items-center;
+    }
 
 }
