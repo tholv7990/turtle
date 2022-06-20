@@ -31,4 +31,5 @@ export interface Journal extends Entity {
     note: string;
     multipleR: number;
     commission: number;
+    entity: Entity;
 }

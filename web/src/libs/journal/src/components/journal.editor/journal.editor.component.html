@@ -1,14 +1,29 @@
-<div class="flex flex-col h-full w-full">
+<div class="flex flex-col h-full w-full overflow-hidden">
 
     <!-- <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-8"><i class="fa fa-arrows-alt  text-light-10 dark:text-dark-10"></i></button> -->
-    <button (click)="close.emit()" class="btn w-4 text-xl absolute top-2 right-2"><i class="fa fa-times"></i></button>
 
-    <div class="flex-fill">
-test
+    <div class="flex-auto flex flex-row items-center justify-between">
+        <span class="font-semibold">New Trade</span>
+        <button (click)="close.emit()" class="btn w-4 text-xl"><i class="fa fa-times"></i></button>
     </div>
 
+    <div class="flex-fill overflow-auto">
+        <div class="fieldset">
+
+            <div class="field">
+                <label>Account</label>
+                <div class="value">
+                    <ng-select placeholder="<Accounts>" [items]="accounts" [searchable]='true' [clearable]='true'  [multiple]="false" [hideSelected]="true">
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="flex-auto flex flex-row items-center justify-end">
-       
+
         <button class="btn w-10 text-sm text-green-light dark:text-green-light">Save</button>
     </div>
 

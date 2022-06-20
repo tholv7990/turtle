@@ -12,6 +12,11 @@ export class JournalEditorComponent implements OnInit {
   @Output() public close = new EventEmitter();
   @Output() public expand = new EventEmitter();
 
+  public accounts = [
+    {_id: '1', name: 'Demo'},
+    {_id: '2', name: 'Binance BTC'}
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
