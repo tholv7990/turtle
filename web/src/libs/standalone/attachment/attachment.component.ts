@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter,  OnChanges,  SimpleChanges,  ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxUploaderModule, UploaderOptions, UploadFile, UploadInput, humanizeBytes, UploadOutput } from 'ngx-uploader';
-import { BasePickerComponent } from '../base/base.picker.component';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -95,7 +94,7 @@ export class AttachmentComponent implements ControlValueAccessor, OnChanges  {
     }
   }
 
- public startUpload(): void {
+ public onStartUpload(): void {
     const event: UploadInput = {
       type: 'uploadAll',
       url: 'http://ngx-uploader.com/upload',
