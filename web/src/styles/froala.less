@@ -4,10 +4,7 @@
         @apply bg-light-100 dark:bg-dark-100 !text-light-10 dark:!text-dark-10 rounded font-normal border-light-30 dark:border-dark-30 border-[1px];
     }
 
-    .fr-toolbar {
-        @apply rounded-br-none rounded-bl-none;
-    }
-
+  
     .fr-second-toolbar  {
         @apply rounded-tl-none rounded-tr-none;
     }
@@ -27,6 +24,11 @@
   
 
 }
+
+.fr-toolbar {
+    @apply !rounded !rounded-br-none !rounded-bl-none ;
+}
+
 
 .fr-wrapper {
     @apply !border-light-30 dark:!border-dark-30 border-[1px] !bg-light-100 dark:!bg-dark-100;

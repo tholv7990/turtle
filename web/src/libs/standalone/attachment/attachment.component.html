@@ -1,0 +1,15 @@
+
+<div class="upload"> 
+    <div class="upload-drop" ngFileDrop [options]="options"  (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+        <h1>Drag &amp; Drop</h1>
+      </div>
+      
+      <label class="upload-button">
+        <input class="file-input" before="or choose file(s)" type="file"  ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple />
+      </label>
+</div>
+
+
+<!-- <button type="button" class="start-upload-btn" (click)="startUpload()">
+  Start Upload
+</button> -->

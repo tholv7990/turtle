@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import { DateTimePipe } from '@libs/standalone.pipes/date.time.pipe';
 import {DialogModule} from 'primeng/dialog';
-import { NgSelectModule } from '@ng-select/ng-select';
 import {DropdownModule} from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AttachmentComponent } from '@libs/standalone';
 
  const routes = [
   { path: '', component: JournalDashboardComponent }
@@ -29,8 +29,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     TableModule,
     DateTimePipe,
     DialogModule,
-    NgSelectModule,
-    DropdownModule
+    DropdownModule,
+    AttachmentComponent
   ]
 })
 export class JournalModule { }

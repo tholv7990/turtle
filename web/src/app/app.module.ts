@@ -18,7 +18,6 @@ import 'froala-editor/js/plugins/colors.min.js';
 import 'froala-editor/js/plugins/lists.min.js';
 import 'froala-editor/js/plugins/font_size.min.js';
 
-
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 
