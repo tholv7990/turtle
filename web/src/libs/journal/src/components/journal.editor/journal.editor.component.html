@@ -1,6 +1,4 @@
-<div class="flex flex-col h-full w-full overflow-hidden">
-
-    <!-- <button (click)="expand.emit()" class="btn w-4 text-lg absolute top-2 right-8"><i class="fa fa-arrows-alt  text-light-10 dark:text-dark-10"></i></button> -->
+<div class="flex flex-col h-full w-full overflow-hidden" [formGroup]="form">
 
     <div class="flex-auto flex flex-row items-center justify-between text-primary">
         <span class="font-semibold">New Trade</span>
@@ -19,13 +17,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="field">
+                <label>Note</label>
+                <div class="value">
+                    <textarea [froalaEditor]='editorOptions'  formControlName="note" autosize rows="5" placeholder="type something..."></textarea>
+                </div>
+            </div>
            
         </div>
     </div>
 
 
 
-    <div class="flex-auto flex flex-row items-center justify-end">
+    <div class="flex-auto flex flex-row items-center justify-end p-2">
 
         <button class="btn w-10 text-sm bg-blue-light dark:bg-blue-dark text-dark-10">Save</button>
     </div>

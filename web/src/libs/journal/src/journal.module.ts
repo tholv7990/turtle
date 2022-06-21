@@ -7,6 +7,9 @@ import { DateTimePipe } from '@libs/standalone.pipes/date.time.pipe';
 import {DialogModule} from 'primeng/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {DropdownModule} from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
  const routes = [
   { path: '', component: JournalDashboardComponent }
@@ -20,6 +23,9 @@ import {DropdownModule} from 'primeng/dropdown';
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    FroalaEditorModule,
+    FroalaViewModule,
     TableModule,
     DateTimePipe,
     DialogModule,

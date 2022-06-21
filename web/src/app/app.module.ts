@@ -6,6 +6,16 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AppComponent } from './components';
 import { LoginComponent,  RegisterComponent, ShellComponent } from '@libs/standalone';
 import { HttpClientModule } from '@angular/common/http';
+import 'froala-editor/js/plugins/align.min.js';
+import 'froala-editor/js/plugins/link.min.js';
+import 'froala-editor/js/plugins/word_paste.min.js';
+import 'froala-editor/js/plugins/emoticons.min.js';
+import 'froala-editor/js/plugins/image.min.js';
+import 'froala-editor/js/plugins/draggable.min.js';
+import 'froala-editor/js/plugins/table.min.js';
+import 'froala-editor/js/plugins/code_view.min.js';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 
 localStorage.theme = localStorage?.theme ??  'dark';
 @NgModule({
@@ -31,6 +41,8 @@ localStorage.theme = localStorage?.theme ??  'dark';
           }
       }
   }),
+  FroalaEditorModule.forRoot(), 
+  FroalaViewModule.forRoot(), 
   ShellComponent,
   RegisterComponent,
   LoginComponent

@@ -1,0 +1,50 @@
+.fr-box {
+
+    .fr-toolbar , .fr-second-toolbar {
+        @apply bg-light-100 dark:bg-dark-100 !text-light-10 dark:!text-dark-10 rounded font-normal border-light-30 dark:border-dark-30 border-[1px];
+    }
+
+    .fr-toolbar {
+        @apply rounded-br-none rounded-bl-none;
+    }
+
+    .fr-second-toolbar  {
+        @apply rounded-tl-none rounded-tr-none;
+    }
+   
+    .fr-placeholder,  .fr-visible, .fr-wrapper {
+        @apply bg-light-100 dark:bg-dark-100 text-light-10 dark:text-dark-10 ;
+    }
+
+    .fr-wrapper {
+        @apply !border-light-30 dark:!border-dark-30 border-[1px];
+    }
+
+    .fr-newline {
+        @apply bg-light-30 dark:bg-dark-30;
+    }
+
+    .fr-element {
+
+       
+        p {
+            @apply !text-light-10 dark:!text-dark-10;
+        }
+       
+    }  
+
+    // .fr-command {
+    //     @apply hover:bg-light-300 hover:dark:bg-dark-300 !text-light-10 dark:!text-dark-10;
+    // }
+
+}
+
+.fr-svg {
+    @apply !text-light-20 dark:!text-dark-20;
+}
+
+.fr-active , .fr-popup{
+    z-index: 1200 !important;
+
+    @apply bg-light-200 dark:bg-dark-200 text-light-10 dark:text-dark-10 border-light-30 dark:border-dark-30 border-[1px];
+ }
