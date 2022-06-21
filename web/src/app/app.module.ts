@@ -15,6 +15,9 @@ import 'froala-editor/js/plugins/draggable.min.js';
 import 'froala-editor/js/plugins/table.min.js';
 import 'froala-editor/js/plugins/code_view.min.js';
 import 'froala-editor/js/plugins/colors.min.js';
+import 'froala-editor/js/plugins/lists.min.js';
+import 'froala-editor/js/plugins/font_size.min.js';
+
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 

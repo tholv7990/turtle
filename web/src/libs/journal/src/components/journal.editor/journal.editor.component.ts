@@ -26,29 +26,47 @@ export class JournalEditorComponent implements OnInit {
     attribution: false,
     toolbarInline: false,
     theme: this.theme,
+    listAdvancedTypes: true,
     placeHolder: 'type something...',
-    pluginsEnabled: ['align', 'link', 'wordPaste', 'emoticons', 'draggable', 'table', 'codeView', 'colorsBackground', 'colorsText'],
+   // pluginsEnabled: [ 'align',  'colors', 'lists', 'link', 'wordPaste', 'emoticons', 'draggable', 'table', 'codeView'],
     tableEditButtons: ['tableHeader', 'tableRemove', '|', 'tableRows', 'tableColumns', 'tableStyle', '-', 'tableCells', 'tableCellBackground', 'tableCellVerticalAlign', 'tableCellHorizontalAlign', 'tableCellStyle'],
     imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
     toolbarButtons: {
       moreText: {
-        buttons: ['bold', 'italic', 'underline', 'fontSize', 'wordPaste', 'clearFormatting'],
+        buttons: ['bold', 'italic', 'underline', 'strikeThrough', 'fontSize', 'clearFormatting'],
         buttonsVisible: 6
       },
+      moreColors: {
+        buttons: ['textColor', 'backgroundColor'],
+        buttonsVisible: 2
+      },
+      moreList: {
+        buttons: ['formatOL', 'formatUL'],
+        buttonsVisible: 2
+      },
       moreParagraph: {
-        buttons: ['alignLeft', 'alignCenter', 'alignRight', 'alignJustify'],
-        buttonsVisible: 5
+        buttons: ['align'],
+        buttonsVisible: 1
+      },
+      moreOptions: {
+        buttons: ['insertOrderedList', 'insertUnorderedList'],
+        buttonsVisible: 2
+      },
+      moreActions: {
+        buttons: ['outdent', 'indent'],
+        buttonsVisible: 2
       },
       moreRich: {
-        buttons: ['emoticons', 'insertTable', 'insertLink', 'insertImage', 'insertVideo'],
-        buttonsVisible: 5
+        buttons: ['emoticons', 'insertTable', 'insertLink'],
+        buttonsVisible: 3
       },
       moreMisc: {
         buttons: ['undo', 'redo', 'selectAll', 'html'],
         align: 'right',
-        buttonsVisible: 5
+        buttonsVisible: 4
       }
     },
+    
 };
 
   public form: UntypedFormGroup;
