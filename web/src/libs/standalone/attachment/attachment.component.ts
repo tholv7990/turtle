@@ -14,21 +14,15 @@ import { ControlValueAccessor } from '@angular/forms';
 })
 export class AttachmentComponent implements ControlValueAccessor, OnChanges  {
 
- public options: UploaderOptions;
+ public options = { concurrency: 1, maxUploads: 3, maxFileSize: 1000000 } as UploaderOptions;
  public  formData: FormData;
- public files: UploadFile[];
- public uploadInput: EventEmitter<UploadInput>;
- public humanizeBytes: Function;
+ public files: UploadFile[] = [];
+ public uploadInput = new EventEmitter<UploadInput>();
+ public humanizeBytes = humanizeBytes;
  public  dragOver: boolean;
  public attachments = [];
 
-  constructor() {
-
-    this.options = { concurrency: 1, maxUploads: 3, maxFileSize: 1000000 };
-    this.files = []; // local uploading files array
-    this.uploadInput = new EventEmitter<UploadInput>(); // input events, we use this to emit data to ngx-uploader
-    this.humanizeBytes = humanizeBytes;
-  }
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
     
@@ -71,6 +65,9 @@ export class AttachmentComponent implements ControlValueAccessor, OnChanges  {
         }
         break;
       case 'uploading':
+
+      console.log('uploading ', output.file)
+
         if (typeof output.file !== 'undefined') {
           // update current data in files array for uploading file
           const index = this.files.findIndex(file => typeof output.file !== 'undefined' && file.id === output.file.id);
