@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, EventEmitter,  ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter,  OnChanges,  SimpleChanges,  ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxUploaderModule, UploaderOptions, UploadFile, UploadInput, humanizeBytes, UploadOutput } from 'ngx-uploader';
+import { BasePickerComponent } from '../base/base.picker.component';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'attachment',
@@ -11,7 +13,7 @@ import { NgxUploaderModule, UploaderOptions, UploadFile, UploadInput, humanizeBy
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AttachmentComponent  {
+export class AttachmentComponent implements ControlValueAccessor, OnChanges  {
 
  public options: UploaderOptions;
  public  formData: FormData;
@@ -19,12 +21,32 @@ export class AttachmentComponent  {
  public uploadInput: EventEmitter<UploadInput>;
  public humanizeBytes: Function;
  public  dragOver: boolean;
+ public attachments = [];
 
   constructor() {
+
     this.options = { concurrency: 1, maxUploads: 3, maxFileSize: 1000000 };
     this.files = []; // local uploading files array
     this.uploadInput = new EventEmitter<UploadInput>(); // input events, we use this to emit data to ngx-uploader
     this.humanizeBytes = humanizeBytes;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
+  
+  writeValue(value: any): void {
+    this.attachments = value;
+  }
+  registerOnChange(fn: any): void {
+   
+  }
+  registerOnTouched(fn: any): void {
+    
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+   
   }
 
  public onUploadOutput(output: UploadOutput): void {
