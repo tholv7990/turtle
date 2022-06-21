@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { FormGroup, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import {  UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+
+
 
 @Component({
   selector: 'journal-editor',
@@ -18,10 +20,14 @@ export class JournalEditorComponent implements OnInit {
     {_id: '2', name: 'Binance BTC'}
   ];
 
+  public theme = localStorage.getItem('theme');
+
   public  editorOptions = {
     attribution: false,
     toolbarInline: false,
-    pluginsEnabled: ['align', 'link', 'wordPaste', 'emoticons', 'draggable', 'table', 'codeView'],
+    theme: this.theme,
+    placeHolder: 'type something...',
+    pluginsEnabled: ['align', 'link', 'wordPaste', 'emoticons', 'draggable', 'table', 'codeView', 'colorsBackground', 'colorsText'],
     tableEditButtons: ['tableHeader', 'tableRemove', '|', 'tableRows', 'tableColumns', 'tableStyle', '-', 'tableCells', 'tableCellBackground', 'tableCellVerticalAlign', 'tableCellHorizontalAlign', 'tableCellStyle'],
     imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
     toolbarButtons: {

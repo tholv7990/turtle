@@ -16,9 +16,7 @@
         @apply bg-light-100 dark:bg-dark-100 text-light-10 dark:text-dark-10 ;
     }
 
-    .fr-wrapper {
-        @apply !border-light-30 dark:!border-dark-30 border-[1px];
-    }
+   
 
     .fr-newline {
         @apply bg-light-30 dark:bg-dark-30;
@@ -33,10 +31,23 @@
        
     }  
 
-    // .fr-command {
-    //     @apply hover:bg-light-300 hover:dark:bg-dark-300 !text-light-10 dark:!text-dark-10;
-    // }
+  
 
+}
+
+.fr-wrapper {
+    @apply !border-light-30 dark:!border-dark-30 border-[1px] !bg-light-100 dark:!bg-dark-100;
+}
+
+
+
+
+@layer base {
+
+ 
+    .fr-command {
+        @apply hover:bg-light-300 hover:dark:bg-dark-300 !text-light-10 dark:!text-dark-10;
+    }
 }
 
 .fr-svg {
