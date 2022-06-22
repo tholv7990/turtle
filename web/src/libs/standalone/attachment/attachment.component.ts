@@ -1,117 +1,104 @@
-import { ChangeDetectionStrategy, Component, EventEmitter,  OnChanges,  SimpleChanges,  ViewEncapsulation } from '@angular/core';
+import { FilePickerComponent, ValidationError, FilePreviewModel, UploaderCaptions, FilePickerModule } from 'ngx-awesome-uploader';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
-import { NgxUploaderModule, UploaderOptions, UploadFile, UploadInput, humanizeBytes, UploadOutput } from 'ngx-uploader';
-import { ControlValueAccessor } from '@angular/forms';
+import { AttachmentAdapter } from './attachment.adapter';
 
 @Component({
   selector: 'attachment',
   standalone: true,
-  imports: [CommonModule, NgxUploaderModule],
+  imports: [CommonModule, FilePickerModule],
   templateUrl: './attachment.component.html',
   styleUrls: ['./attachment.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AttachmentComponent implements ControlValueAccessor, OnChanges  {
+export class AttachmentComponent implements OnInit {
 
- public options = { concurrency: 1, maxUploads: 3, maxFileSize: 1000000 } as UploaderOptions;
- public  formData: FormData;
- public files: UploadFile[] = [];
- public uploadInput = new EventEmitter<UploadInput>();
- public humanizeBytes = humanizeBytes;
- public  dragOver: boolean;
- public attachments = [];
+  @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 
-  constructor() {}
+  public allowExtensions = ['pdf', 'jpg', 'png', 'PNG', 'mp4', 'css', 'docx', 'txt'];
 
-  ngOnChanges(changes: SimpleChanges): void {
-    
-  }
-  
-  writeValue(value: any): void {
-    this.attachments = value;
-  }
-  registerOnChange(fn: any): void {
-   
-  }
-  registerOnTouched(fn: any): void {
-    
-  }
+  public adapter = new AttachmentAdapter(this.http);
 
-  setDisabledState?(isDisabled: boolean): void {
-   
-  }
+  public myFiles: FilePreviewModel[] = [];
 
- public onUploadOutput(output: UploadOutput): void {
-
-  console.log('output ', output)
-
-  const {type} = output;
-
-    switch (type) {
-      case 'allAddedToQueue':
-        // uncomment this if you want to auto upload files when added
-        // const event: UploadInput = {
-        //   type: 'uploadAll',
-        //   url: '/upload',
-        //   method: 'POST',
-        //   data: { foo: 'bar' }
-        // };
-        // this.uploadInput.emit(event);
-        break;
-      case 'addedToQueue':
-        if (typeof output.file !== 'undefined') {
-          this.files.push(output.file);
-        }
-        break;
-      case 'uploading':
-
-      console.log('uploading ', output.file)
-
-        if (typeof output.file !== 'undefined') {
-          // update current data in files array for uploading file
-          const index = this.files.findIndex(file => typeof output.file !== 'undefined' && file.id === output.file.id);
-          this.files[index] = output.file;
-        }
-        break;
-      case 'removed':
-        // remove file from array when removed
-        this.files = this.files.filter((file: UploadFile) => file !== output.file);
-        break;
-      case 'dragOver':
-        this.dragOver = true;
-        break;
-      case 'dragOut':
-      case 'drop':
-        this.dragOver = false;
-        break;
-      case 'done':
-        // The file is downloaded
-        break;
+  public captions: UploaderCaptions = {
+    dropzone: {
+      title: 'Fayllari bura ata bilersiz',
+      or: 'və yaxud',
+      browse: 'Fayl seçin'
+    },
+    cropper: {
+      crop: 'Kəs',
+      cancel: 'Imtina'
+    },
+    previewCard: {
+      remove: 'Sil',
+      uploadError: 'Fayl yüklənmədi'
     }
+  };
+
+  constructor(private http: HttpClient) { }
+
+  public ngOnInit(): void {
+    setTimeout(() => {
+      const files = [
+        {
+          fileName: 'My File 1 for edit.png', file: null
+        },
+        {
+          fileName: 'My File 2 for edit.xlsx', file: null
+        }
+      ] as FilePreviewModel[];
+      this.uploader.setFiles(files);
+    }, 1000);
   }
 
- public onStartUpload(): void {
-    const event: UploadInput = {
-      type: 'uploadAll',
-      url: 'http://ngx-uploader.com/upload',
-      method: 'POST',
-      data: { foo: 'bar' }
-    };
-
-    this.uploadInput.emit(event);
+  public onValidationError(er: ValidationError): void {
+    console.log('validationError', er);
   }
 
- public cancelUpload(id: string): void {
-    this.uploadInput.emit({ type: 'cancel', id: id });
+  public onUploadSuccess(res: FilePreviewModel): void {
+    console.log('uploadSuccess', res);
+    // console.log(this.myFiles)
   }
 
-  public removeFile(id: string): void {
-    this.uploadInput.emit({ type: 'remove', id: id });
+  public onUploadFail(er: HttpErrorResponse): void {
+    console.log('uploadFail', er);
   }
 
-  public removeAllFiles(): void {
-    this.uploadInput.emit({ type: 'removeAll' });
+  public onRemoveSuccess(res: FilePreviewModel): void {
+    console.log('removeSuccess', res);
   }
 
+  public onFileAdded(file: FilePreviewModel): void {
+    console.log('fileAdded', file);
+    this.myFiles.push(file);
+  }
+
+  public onFileRemoved(file: FilePreviewModel): void {
+    console.log('fileRemoved', this.uploader.files);
+  }
+
+  public removeFile(): void {
+    this.uploader.removeFileFromList(this.myFiles[0]);
+  }
+
+  public myCustomValidator(file: File): Observable<boolean> {
+    if (!file.name.includes('uploader')) {
+      return of(true).pipe(delay(100));
+    }
+    return of(false).pipe(delay(100));
+  }
+
+  public clearAllFiles(): void {
+    this.uploader.files = [];
+  }
+
+  public onRemoveFile(fileItem: FilePreviewModel): void {
+    this.uploader.removeFile(fileItem);
+  }
 }

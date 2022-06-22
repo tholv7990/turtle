@@ -1,14 +1,33 @@
 
-<div class="upload"> 
-    <div class="upload-drop" ngFileDrop [options]="options"  (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
-        <h1>Drag &amp; Drop</h1>
-      </div>
-      
-      <label class="upload-button">
-        <input class="file-input" before="or choose file(s)" type="file"  ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple />
-      </label>
+  <ngx-awesome-uploader #uploader
+    [totalMaxSize]="100"
+    [fileMaxCount]="3"
+    [fileMaxSize]="200"
+    [uploadType]="'multi'"
+    (validationError)= "onValidationError($event)"
+    [adapter]="adapter"
+    [fileExtensions]="allowExtensions"
+    [enableCropper]="false"
+    (uploadSuccess)="onUploadSuccess($event)"
+    (uploadFail)="onUploadFail($event)"
+    (removeSuccess)="onRemoveSuccess($event)"
+    [showeDragDropZone]="true"
+    [showPreviewContainer]="true"
+    [customValidator]="myCustomValidator"
+    [enableAutoUpload]="true"
+    (fileAdded)="onFileAdded($event)"
+    (fileRemoved)="onFileRemoved($event)"
+ >
+  <!-- <div class="dropzoneTemplate">
+    <button>Custom</button>
+  </div> -->
+</ngx-awesome-uploader>
+<!-- <button (click)="removeFile()">Remove First File</button> -->
+<!-- <button (click)="clearAllFiles()">Clear All Files</button> -->
 
-      <button (click)="onStartUpload()" class="btn">Upload</button>
-</div>
-
-
+<ng-template #itemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
+  <p>{{fileItem.file?.size}}</p>
+  <p>{{fileItem.fileName}}</p>
+  <p>{{uploadProgress}}</p>
+  <button (click)="onRemoveFile(fileItem)">Remove</button>
+</ng-template>

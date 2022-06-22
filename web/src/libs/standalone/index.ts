@@ -1,3 +1,4 @@
+export * from './attachment/attachment.adapter';
 export * from './attachment/attachment.component';
 export * from './base/base.picker.component';
 export * from './login/login.component';

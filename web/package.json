@@ -34,6 +34,7 @@
     "jwt-decode": "^3.1.2",
     "linq": "^4.0.0",
     "luxon": "^2.4.0",
+    "ngx-awesome-uploader": "^13.0.1",
     "ngx-uploader": "^11.0.0",
     "primeicons": "^5.0.0",
     "primeng": "^13.4.1",
