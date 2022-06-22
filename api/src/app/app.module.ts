@@ -1,9 +1,9 @@
+import { AttachmentModule } from '@libs/features/attachment';
 import { AuthenticationModule } from '@libs/features/authentication';
 import { DatabaseModule } from '@libs/providers';
-import { Inject, Module } from '@nestjs/common';
+import {  Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { RouterModule, Routes } from '@nestjs/core';
-import { MongooseModule } from '@nestjs/mongoose';
 
 export const routes: Routes = [
   {
@@ -12,6 +12,10 @@ export const routes: Routes = [
       {
           path: '/auth',
           module: AuthenticationModule
+      },
+      {
+        path: '/attachment',
+        module: AttachmentModule
       }
     ]
   }
@@ -20,6 +24,8 @@ export const routes: Routes = [
 @Module({
   imports: [
     AuthenticationModule,
+    AttachmentModule,
+
     ConfigModule.forRoot(),
     RouterModule.register(routes),
     DatabaseModule.forApp()

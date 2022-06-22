@@ -1,45 +1,48 @@
 
-import { HttpRequest, HttpClient, HttpEvent, HttpEventType, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-import { FilePickerAdapter, FilePreviewModel, UploadResponse, UploadStatus } from 'ngx-awesome-uploader';
-
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType, HttpHeaders, HttpRequest, } from '@angular/common/http';
+import { catchError, map, Observable, of } from 'rxjs';
+import { FilePickerAdapter, FilePreviewModel, UploadStatus } from 'ngx-awesome-uploader';
+import { S3 } from 'aws-sdk';
+import { environmentEdge } from '@libs/model';
 export class AttachmentAdapter extends FilePickerAdapter {
 
   constructor(private http: HttpClient) {
     super();
   }
-  public uploadFile(fileItem: FilePreviewModel): Observable<UploadResponse> {
+  public uploadFile(item: FilePreviewModel): Observable<any> {
 
-    const form = new FormData();
-    form.append('file', fileItem.file);
-    const api = 'https://ngx-awesome-uploader-2.free.beeceptor.com/upload';
-    const req = new HttpRequest('POST', api, form, { reportProgress: true });
-    return this.http.request(req)
-      .pipe(
-        // @ts-ignore: not all return value
-        // TODO: fix return type
-        map((res: HttpEvent<any>) => {
-          if (res.type === HttpEventType.Response) {
-            const responseFromBackend = res.body;
-            return {
-              body: responseFromBackend,
-              status: UploadStatus.UPLOADED
-            };
-          } else if (res.type === HttpEventType.UploadProgress) {
-            /** Compute and show the % done: */
-            const uploadProgress = +Math.round((100 * res.loaded) / res.total);
-            return {
-              status: UploadStatus.IN_PROGRESS,
-              progress: uploadProgress
-            };
-          }
-        }),
-        catchError((er: HttpErrorResponse) => {
-          console.log(er);
-          return of({ status: UploadStatus.ERROR, body: er });
-        })
-      );
+    const file = item.file as File;
+
+    const { bucketName, accessKey, secretKey, region } = environmentEdge.aws
+
+    const contentType = file.type;
+
+    const bucket = new S3({
+      accessKeyId: accessKey,
+      secretAccessKey: secretKey,
+      region: region
+    });
+
+    const params = {
+      Bucket: bucketName,
+      Key: `${file.type}/${file.name}`,
+      Body: file,
+      ACL: 'public-read',
+      ContentType: contentType,
+    };
+
+
+    bucket.upload(params, function (err: any, data: any) {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+
+    return of(null);
+
+
+
   }
 
   public removeFile(fileItem: FilePreviewModel): Observable<any> {
@@ -50,3 +53,11 @@ export class AttachmentAdapter extends FilePickerAdapter {
   }
 
 }
+function reject(err: any) {
+  throw new Error('Function not implemented.');
+}
+
+function resolve(data: any) {
+  throw new Error('Function not implemented.');
+}
+

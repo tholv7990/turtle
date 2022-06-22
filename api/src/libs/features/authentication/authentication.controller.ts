@@ -3,6 +3,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthenticateLogic } from './logic';
 import { AccountReadRepository, AccountWriteRepository } from './repositories';
+import * as AWS from "aws-sdk";
 
 
 @ApiTags('authentication')
@@ -33,6 +34,46 @@ export class AuthenticationController {
         const account = await this.accountWriteRep.create(request);
 
         return account;
+    }
+
+    @Post()
+    public async save(@Body() file: any): Promise<any> {
+
+
+        const s3 = new AWS.S3
+            ({
+                secretAccessKey: 'wGwhx7LKjujpWDHCYuvWjgoShOnKAWKFt+uxSMyK',
+                accessKeyId: 'AKIATUG34ZRIIHKDCOEZ',
+                region: 'ap-southeast-1'
+            });
+
+        const params =
+        {
+            Bucket: 'turtle-trading',
+            Key: file?.name,
+            Body: file,
+            ACL: "public-read",
+            ContentType: file?.type,
+            ContentDisposition: "inline",
+            CreateBucketConfiguration:
+            {
+                LocationConstraint: "ap-southeast-1"
+            }
+        };
+
+        console.log(params);
+
+        try
+        {
+            let s3Response = await s3.upload(params).promise();
+
+            console.log(s3Response);
+        }
+        catch (e)
+        {
+            console.log(e);
+        }
+
     }
 
 }

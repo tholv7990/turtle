@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import {  UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
-
-
 @Component({
   selector: 'journal-editor',
   templateUrl: './journal.editor.component.html',

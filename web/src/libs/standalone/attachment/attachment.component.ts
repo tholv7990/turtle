@@ -19,7 +19,7 @@ export class AttachmentComponent implements OnInit {
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 
-  public allowExtensions = ['pdf', 'jpg', 'png', 'PNG', 'mp4', 'css', 'docx', 'txt'];
+  public allowExtensions = ['jpg', 'png', 'PNG', 'webp'];
 
   public adapter = new AttachmentAdapter(this.http);
 
