@@ -53,7 +53,7 @@ export class AttachmentComponent implements OnInit {
           fileName: 'My File 2 for edit.xlsx', file: null
         }
       ] as FilePreviewModel[];
-      this.uploader.setFiles(files);
+    //  this.uploader.setFiles(files);
     }, 1000);
   }
 
