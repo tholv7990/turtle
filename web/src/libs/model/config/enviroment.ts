@@ -35,7 +35,7 @@ export const environmentEdge = {
       }
     },
     aws: {
-      bucketName: 'turtle_trading',
+      bucketName: 'turtle-trading',
       accessKey: 'AKIATUG34ZRIDT3NFR6R',
       secretKey: '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',
       region: 'ap-southeast-1'

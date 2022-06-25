@@ -1,11 +1,28 @@
 attachment {
 
-    .file-drop-wrapper  {
-        @apply !bg-inherit;
+    
 
-        .custom-drag {
-            @apply !bg-inherit text-light-10 dark:text-dark-10;
+    ngx-awesome-uploader {
+
+        @apply max-w-none w-auto h-auto;
+
+        .file-drop-wrapper {
+            @apply  !bg-inherit !p-0 !w-[120px];
+    
+            .custom-drag {
+                @apply  !bg-inherit text-light-10 dark:text-dark-10 w-[90px] h-[90px] flex items-center justify-center !p-2 !m-0;
+            }
+        }
+
+        @apply !flex !flex-row items-center !max-w-full;
+
+        file-drop {
+            @apply  !p-0;
+
+            .dropzoneTemplate {
+                @apply flex items-center justify-center;
+            }
         }
     }
-    
+
 }

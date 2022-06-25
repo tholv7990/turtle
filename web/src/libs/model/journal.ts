@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { Attachment } from "./attachment";
 import { Entity } from "./entity";
 
 export enum TradingStatus {
@@ -32,4 +33,7 @@ export interface Journal extends Entity {
     multipleR: number;
     commission: number;
     entity: Entity;
+    before: Attachment[];
+    during: Attachment[];
+    after: Attachment;
 }

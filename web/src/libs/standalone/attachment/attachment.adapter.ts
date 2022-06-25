@@ -1,7 +1,7 @@
 
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType, HttpHeaders, HttpRequest, } from '@angular/common/http';
-import { catchError, map, Observable, of } from 'rxjs';
-import { FilePickerAdapter, FilePreviewModel, UploadStatus } from 'ngx-awesome-uploader';
+import { HttpClient,} from '@angular/common/http';
+import {  Observable, of } from 'rxjs';
+import { FilePickerAdapter, FilePreviewModel } from 'ngx-awesome-uploader';
 import { S3 } from 'aws-sdk';
 import { environmentEdge } from '@libs/model';
 export class AttachmentAdapter extends FilePickerAdapter {
@@ -9,6 +9,7 @@ export class AttachmentAdapter extends FilePickerAdapter {
   constructor(private http: HttpClient) {
     super();
   }
+  
   public uploadFile(item: FilePreviewModel): Observable<any> {
 
     const file = item.file as File;
@@ -25,19 +26,21 @@ export class AttachmentAdapter extends FilePickerAdapter {
 
     const params = {
       Bucket: bucketName,
-      Key: `${file.type}/${file.name}`,
+      Key: `image/${file.name}`,
       Body: file,
       ACL: 'public-read',
       ContentType: contentType,
     };
 
 
-    bucket.upload(params, function (err: any, data: any) {
+    bucket.upload(params,  (err, data) => {
       if (err) {
-        reject(err);
+      console.log('EROOR: ',JSON.stringify( err));
+      return false;
       }
-      resolve(data);
-    });
+      console.log('File Uploaded.', data);
+      return true;
+      });
 
     return of(null);
 
@@ -53,11 +56,3 @@ export class AttachmentAdapter extends FilePickerAdapter {
   }
 
 }
-function reject(err: any) {
-  throw new Error('Function not implemented.');
-}
-
-function resolve(data: any) {
-  throw new Error('Function not implemented.');
-}
-

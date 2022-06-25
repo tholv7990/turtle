@@ -19,43 +19,16 @@ export class AttachmentComponent implements OnInit {
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 
-  public allowExtensions = ['jpg', 'png', 'PNG', 'webp'];
+  public allowExtensions = ['jpg', 'png', 'PNG', 'webp', 'jpeg'];
 
   public adapter = new AttachmentAdapter(this.http);
 
   public myFiles: FilePreviewModel[] = [];
 
-  public captions: UploaderCaptions = {
-    dropzone: {
-      title: 'Fayllari bura ata bilersiz',
-      or: 'və yaxud',
-      browse: 'Fayl seçin'
-    },
-    cropper: {
-      crop: 'Kəs',
-      cancel: 'Imtina'
-    },
-    previewCard: {
-      remove: 'Sil',
-      uploadError: 'Fayl yüklənmədi'
-    }
-  };
 
   constructor(private http: HttpClient) { }
 
-  public ngOnInit(): void {
-    setTimeout(() => {
-      const files = [
-        {
-          fileName: 'My File 1 for edit.png', file: null
-        },
-        {
-          fileName: 'My File 2 for edit.xlsx', file: null
-        }
-      ] as FilePreviewModel[];
-    //  this.uploader.setFiles(files);
-    }, 1000);
-  }
+  public ngOnInit() {}
 
   public onValidationError(er: ValidationError): void {
     console.log('validationError', er);
@@ -87,7 +60,7 @@ export class AttachmentComponent implements OnInit {
     this.uploader.removeFileFromList(this.myFiles[0]);
   }
 
-  public myCustomValidator(file: File): Observable<boolean> {
+  public validateFile(file: File): Observable<boolean> {
     if (!file.name.includes('uploader')) {
       return of(true).pipe(delay(100));
     }

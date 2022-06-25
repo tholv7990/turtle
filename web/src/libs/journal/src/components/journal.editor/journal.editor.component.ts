@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import {  UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'journal-editor',
@@ -14,58 +14,49 @@ export class JournalEditorComponent implements OnInit {
   @Output() public expand = new EventEmitter();
 
   public accounts = [
-    {_id: '1', name: 'Demo'},
-    {_id: '2', name: 'Binance BTC'}
+    { _id: '1', name: 'Demo' },
+    { _id: '2', name: 'Binance BTC' }
   ];
 
   public theme = localStorage.getItem('theme');
 
-  public  editorOptions = {
+  public editorOptions = {
     attribution: false,
     toolbarInline: false,
     theme: this.theme,
     listAdvancedTypes: true,
     placeHolder: 'type something...',
-   // pluginsEnabled: [ 'align',  'colors', 'lists', 'link', 'wordPaste', 'emoticons', 'draggable', 'table', 'codeView'],
     tableEditButtons: ['tableHeader', 'tableRemove', '|', 'tableRows', 'tableColumns', 'tableStyle', '-', 'tableCells', 'tableCellBackground', 'tableCellVerticalAlign', 'tableCellHorizontalAlign', 'tableCellStyle'],
     imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
     toolbarButtons: {
       moreText: {
-        buttons: ['bold', 'italic', 'underline', 'strikeThrough', 'fontSize', 'clearFormatting'],
-        buttonsVisible: 6
+        buttons: ['bold', 'italic', 'underline','clearFormatting', 'strikeThrough',  'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle'],
+        align: 'left',
+        buttonsVisible: 4
       },
-      moreColors: {
-        buttons: ['textColor', 'backgroundColor'],
-        buttonsVisible: 2
-      },
-      moreList: {
-        buttons: ['formatOL', 'formatUL'],
-        buttonsVisible: 2
-      },
+
+
       moreParagraph: {
-        buttons: ['align'],
-        buttonsVisible: 1
-      },
-      moreOptions: {
-        buttons: ['insertOrderedList', 'insertUnorderedList'],
-        buttonsVisible: 2
-      },
-      moreActions: {
-        buttons: ['outdent', 'indent'],
-        buttonsVisible: 2
-      },
-      moreRich: {
-        buttons: ['emoticons', 'insertTable', 'insertLink'],
+        buttons: ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote'],
+        align: 'left',
         buttonsVisible: 3
       },
+
+      moreRich: {
+        buttons: ['insertLink', 'insertImage',  'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR'],
+        align: 'left',
+        buttonsVisible: 3
+      },
+
       moreMisc: {
-        buttons: ['undo', 'redo', 'selectAll', 'html'],
+        buttons: ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll', 'html', 'help'],
         align: 'right',
-        buttonsVisible: 4
+        buttonsVisible: 2
       }
     },
-    
-};
+    toolbarButtonsXS: [['undo', 'redo'], ['bold', 'italic', 'underline']]
+
+  };
 
   public form: UntypedFormGroup;
 
@@ -76,7 +67,7 @@ export class JournalEditorComponent implements OnInit {
       account: [null, []],
       note: [null, []]
     })
-   }
+  }
 
   ngOnInit(): void {
   }

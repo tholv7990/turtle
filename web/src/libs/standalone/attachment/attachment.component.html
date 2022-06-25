@@ -13,14 +13,14 @@
     (removeSuccess)="onRemoveSuccess($event)"
     [showeDragDropZone]="true"
     [showPreviewContainer]="true"
-    [customValidator]="myCustomValidator"
+    [customValidator]="validateFile"
     [enableAutoUpload]="true"
     (fileAdded)="onFileAdded($event)"
     (fileRemoved)="onFileRemoved($event)"
  >
-  <!-- <div class="dropzoneTemplate">
-    <button>Custom</button>
-  </div> -->
+  <div class="dropzoneTemplate">
+    <button class="btn text-lg"><i class="fa fa-upload"></i></button>
+  </div>
 </ngx-awesome-uploader>
 <!-- <button (click)="removeFile()">Remove First File</button> -->
 <!-- <button (click)="clearAllFiles()">Clear All Files</button> -->
