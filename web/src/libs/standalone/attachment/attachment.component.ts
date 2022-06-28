@@ -1,6 +1,6 @@
 import { FilePickerComponent, ValidationError, FilePreviewModel, UploaderCaptions, FilePickerModule } from 'ngx-awesome-uploader';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
@@ -16,6 +16,8 @@ import { AttachmentAdapter } from './attachment.adapter';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttachmentComponent implements OnInit {
+
+  @Input() public uploadType;
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 
