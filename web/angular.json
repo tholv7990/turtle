@@ -84,8 +84,7 @@
             "production": { },
             "options": {
               "browserTarget": "web:build",
-              "port": 3000,
-              "host": "0.0.0.0"
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
               "browserTarget": "web:build:development"
