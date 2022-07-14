@@ -5,12 +5,12 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          100: '#0B0E11',
-          200: '#181a1f',
-          300: '#333333',
+          100: '#1D2733',
+          200: '#232D3B',
+          300: '#1A232F',
           400: '#3c3c3c',
-          10: '#fdfdfd',
-          20: '#848e9c',
+          10: '#E1E9F5',
+          20: '#B9C8E0',
           30: '#67707b'
         },
         light: {
@@ -26,11 +26,11 @@ module.exports = {
           light: '#ecb708'
         },
         red: {
-          dark: '#c9252d',
+          dark: '#FF5972',
           light: '#CF304A'
         },
         green: {
-          dark: '#2f9d78',
+          dark: '#30DEAB',
           light: '#10cb80'
         },
         blue: {

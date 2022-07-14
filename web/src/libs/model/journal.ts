@@ -35,5 +35,5 @@ export interface Journal extends Entity {
     entity: Entity;
     before: Attachment[];
     during: Attachment[];
-    after: Attachment;
+    after: Attachment[];
 }

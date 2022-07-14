@@ -65,7 +65,7 @@
 
     </div>
 
-    <p-dialog header="Title" appendTo="body" visible="true" *ngIf="vm?.dialog === DialogType.New" showHeader="false" closable="false" closeOnEscape="false" [styleClass]="'w-[90%] h-full'">
+    <p-dialog header="Title" appendTo="body" visible="true" *ngIf="vm?.dialog === DialogType.New" showHeader="false" closable="false" closeOnEscape="false" [styleClass]="'w-full h-full'">
        <journal-editor (expand)="onExpand()" (close)="onOpenDialog(DialogType.None)"></journal-editor>
     </p-dialog>
 

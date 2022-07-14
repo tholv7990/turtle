@@ -4,7 +4,7 @@
     <div class="flex-fill flex ml-5 font-semibold text-sm">
 
         <ng-container *ngFor="let item of menu">
-            <div  routerLink="/{{item?.path}}" routerLinkActive="active" [ngClass]="{ 'bg-tertiary': isActive(item?.path)} " class="mr-4 text-hover cursor-pointer px-3 py-1 rounded">{{item?.data?.title}}</div>
+            <div  routerLink="/{{item?.path}}" routerLinkActive="active" [ngClass]="{ 'bg-secondary': isActive(item?.path)} " class="mr-4 text-hover cursor-pointer px-3 py-1 rounded">{{item?.data?.title}}</div>
         </ng-container>
        
     </div>

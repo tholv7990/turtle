@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { AttachmentAdapter } from './attachment.adapter';
+import { UploadType } from './attachment.model';
 
 @Component({
   selector: 'attachment',
@@ -17,7 +18,7 @@ import { AttachmentAdapter } from './attachment.adapter';
 })
 export class AttachmentComponent implements OnInit {
 
-  @Input() public uploadType;
+  @Input() public uploadType  = UploadType.Multi;
 
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
 
@@ -50,7 +51,6 @@ export class AttachmentComponent implements OnInit {
   }
 
   public onFileAdded(file: FilePreviewModel): void {
-    console.log('fileAdded', file);
     this.myFiles.push(file);
   }
 

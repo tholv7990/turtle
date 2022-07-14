@@ -27,6 +27,11 @@ const routes: Routes = [
         path: 'planning',
         loadChildren: () => import('../libs/journal').then(m => m.JournalModule),
         data: { title: 'Planning', animation: 'planningPage' }
+      },
+      {
+        path: 'import',
+        loadChildren: () => import('../libs/bulk.import').then(m => m.BulkImportModule),
+        data: { title: 'Bulk Import', animation: 'import' }
       }
     ]
   },

@@ -1,13 +1,12 @@
 
   <ngx-awesome-uploader #uploader
     [totalMaxSize]="100"
-    [fileMaxCount]="3"
+    [fileMaxCount]="10"
     [fileMaxSize]="200"
-    [uploadType]="'multi'"
+    [uploadType]="uploadType"
     (validationError)= "onValidationError($event)"
     [adapter]="adapter"
     [fileExtensions]="allowExtensions"
-    [enableCropper]="false"
     (uploadSuccess)="onUploadSuccess($event)"
     (uploadFail)="onUploadFail($event)"
     (removeSuccess)="onRemoveSuccess($event)"
@@ -19,15 +18,9 @@
     (fileRemoved)="onFileRemoved($event)"
  >
   <div class="dropzoneTemplate">
-    <button class="btn text-lg"><i class="fa fa-upload"></i></button>
+    <button class="btn text-lg"><i class="fa fa-plus"></i></button>
   </div>
 </ngx-awesome-uploader>
-<!-- <button (click)="removeFile()">Remove First File</button> -->
-<!-- <button (click)="clearAllFiles()">Clear All Files</button> -->
 
 <ng-template #itemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
-  <p>{{fileItem.file?.size}}</p>
-  <p>{{fileItem.fileName}}</p>
-  <p>{{uploadProgress}}</p>
-  <button (click)="onRemoveFile(fileItem)">Remove</button>
 </ng-template>

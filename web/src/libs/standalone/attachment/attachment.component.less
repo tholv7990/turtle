@@ -1,16 +1,14 @@
 attachment {
 
-    
-
     ngx-awesome-uploader {
 
-        @apply max-w-none w-auto h-auto;
+        @apply max-w-none w-auto h-auto !overflow-hidden;
 
         .file-drop-wrapper {
-            @apply  !bg-inherit !p-0 !w-[120px];
+            @apply  !bg-inherit !p-0 !w-[120px] mr-2;
     
             .custom-drag {
-                @apply  !bg-inherit text-light-10 dark:text-dark-10 w-[90px] h-[90px] flex items-center justify-center !p-2 !m-0 !border-[1px] !border-light-20 dark:!border-dark-20 !border-solid !text-light-20 dark:!text-dark-20;
+                @apply  !bg-inherit text-light-10 dark:text-dark-10 w-[120px] h-[90px] flex items-center justify-center !p-2 !m-0 !border-[1px] !border-light-20 dark:!border-dark-20 !border-solid !text-light-20 dark:!text-dark-20 cursor-pointer;
             }
         }
 
@@ -21,6 +19,39 @@ attachment {
 
             .dropzoneTemplate {
                 @apply flex items-center justify-center;
+            }
+        }
+
+        .files-preview-wrapper {
+            @apply !overflow-auto;
+        }
+
+        file-preview-container {
+            @apply !flex-row !bg-inherit;
+
+            file-preview-item {
+
+                height: 90px;
+                width: 120px;
+
+                @apply m-0  mr-2 !p-0 rounded !border-[1px] !border-light-20 dark:!border-dark-20 !border-solid !text-light-20 dark:!text-dark-20;
+
+                .file-preview-wrapper {
+                    @apply border-none h-full p-1 flex-col overflow-auto;
+
+                    .file-preview-thumbnail {
+                        @apply hidden;
+                    }
+
+                    .file-preview-description {
+                        @apply !text-xs !p-0 text-primary;
+                    }
+
+                    .file-preview-actions {
+                        @apply w-full;
+                    }
+                }
+
             }
         }
     }
