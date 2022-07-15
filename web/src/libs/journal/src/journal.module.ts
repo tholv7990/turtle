@@ -7,7 +7,7 @@ import { DateTimePipe } from '@libs/standalone.pipes/date.time.pipe';
 import {DialogModule} from 'primeng/dialog';
 import {DropdownModule} from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {SelectButtonModule} from 'primeng/selectbutton';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AttachmentComponent } from '@libs/standalone';
 
@@ -30,6 +30,7 @@ import { AttachmentComponent } from '@libs/standalone';
     DateTimePipe,
     DialogModule,
     DropdownModule,
+    SelectButtonModule,
     AttachmentComponent
   ]
 })

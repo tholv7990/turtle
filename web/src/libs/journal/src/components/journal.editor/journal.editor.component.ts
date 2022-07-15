@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { TradingSide } from '@libs/model';
 
 @Component({
   selector: 'journal-editor',
@@ -17,6 +18,11 @@ export class JournalEditorComponent implements OnInit {
     { _id: '1', name: 'Demo' },
     { _id: '2', name: 'Binance BTC' }
   ];
+
+  public positions = [
+    { _id: TradingSide.Long, name: TradingSide.Long },
+    { _id: TradingSide.Short, name: TradingSide.Short }
+  ]
 
   public theme = localStorage.getItem('theme');
 
@@ -65,6 +71,12 @@ export class JournalEditorComponent implements OnInit {
     this.form = builder.group({
       _id: [null, []],
       account: [null, []],
+      side: [TradingSide.Long, []],
+      symbol: [null, Validators.required],
+      leverage: [20, []],
+      entry: [0, Validators.required],
+      exist: [0, []],
+      target: [0, []],
       note: [null, []]
     })
   }

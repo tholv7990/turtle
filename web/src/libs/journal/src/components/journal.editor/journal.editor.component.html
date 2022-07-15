@@ -15,9 +15,75 @@
             <div class="field-row">
 
                 <div class="field">
-                    <label>Account</label>
+                    <label class="required">Account</label>
                     <div class="value">
                         <p-dropdown [options]="accounts"  optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Balance</label>
+                    <div class="value">
+                      {{20000 | currency}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Risk</label>
+                    <div class="value">
+                       {{0.01 | percent}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Symbol</label>
+                    <div class="value">
+                       <input formControlName="symbol" type="text" placeholder="Symbol" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Leverage</label>
+                    <div class="value">
+                        <input type="number" formControlName="leverage" placeholder="Leverage" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Side</label>
+                    <div class="value">
+                        <p-selectButton [ngClass]="form?.get('side')?.value" [options]="positions" formControlName="side" optionLabel="name" optionValue="_id">
+                            <ng-template let-item>
+                               <div [ngClass]="item?.name">{{item?.name}}</div>
+                            </ng-template>
+                        </p-selectButton>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Entry</label>
+                    <div class="value">
+                       <input formControlName="entry" type="number" placeholder="Entry" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Exist</label>
+                    <div class="value">
+                        <input type="number" formControlName="exist" placeholder="Exist" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Target</label>
+                    <div class="value">
+                        <input type="number" formControlName="target" placeholder="Target" />
                     </div>
                 </div>
             </div>
