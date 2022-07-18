@@ -1,60 +1,57 @@
-.fr-box {
 
-    .fr-toolbar , .fr-second-toolbar {
-        @apply bg-light-100 dark:bg-dark-100 !text-light-10 dark:!text-dark-10 rounded font-normal border-light-30 dark:border-dark-30 border-[1px];
-    }
 
-  
-    .fr-second-toolbar  {
-        @apply rounded-tl-none rounded-tr-none;
-    }
-   
-    .fr-placeholder,  .fr-visible, .fr-wrapper {
-        @apply bg-light-100 dark:bg-dark-100 text-light-20 dark:text-dark-20 ;
-    }
+
+@layer components {
 
    
 
-    .fr-newline {
-        @apply bg-light-30 dark:bg-dark-30;
-    }
-
+        .fr-toolbar , .fr-second-toolbar {
+            @apply bg-primary !text-primary rounded font-normal border-light-30 dark:border-dark-30 border-[1px];
+        }
     
-
-  
-
-}
-
-.fr-toolbar {
-    @apply !rounded !rounded-br-none !rounded-bl-none ;
-}
-
-
-.fr-wrapper {
-    @apply !border-light-30 dark:!border-dark-30 border-[1px] !bg-light-100 dark:!bg-dark-100;
-}
-
-.fr-element {
-    @apply !text-light-10 dark:!text-dark-10;
-}  
-
-
-
-
-@layer base {
+      
+        .fr-second-toolbar  {
+            @apply rounded-tl-none rounded-tr-none;
+        }
+       
+        .fr-placeholder,  .fr-visible, .fr-wrapper {
+            @apply bg-primary text-secondary ;
+        }   
+    
+        .fr-newline {
+            @apply bg-light-30 dark:bg-dark-30;
+        }
+    
+    
+    
+    .fr-toolbar {
+        @apply !rounded !rounded-br-none !rounded-bl-none ;
+    }
+    
+    
+    .fr-wrapper {
+        @apply !border-light-30 dark:!border-dark-30 border-[1px] !bg-light-100 dark:!bg-dark-100;
+    }
+    
+    .fr-element {
+        @apply !text-primary;
+    }  
+    
+    
 
  
     .fr-command {
-        @apply hover:bg-light-300 hover:dark:bg-dark-300 !text-light-10 dark:!text-dark-10;
+        @apply hover:bg-tertiary !text-primary;
     }
+
+    .fr-svg {
+        @apply !text-secondary;
+    }
+    
+    .fr-active , .fr-popup{
+        z-index: 1200 !important;
+    
+        @apply bg-secondary text-primary border-light-30 dark:border-dark-30 border-[1px];
+     }
 }
 
-.fr-svg {
-    @apply !text-light-20 dark:!text-dark-20;
-}
-
-.fr-active , .fr-popup{
-    z-index: 1200 !important;
-
-    @apply bg-light-200 dark:bg-dark-200 text-light-10 dark:text-dark-10 border-light-30 dark:border-dark-30 border-[1px];
- }
