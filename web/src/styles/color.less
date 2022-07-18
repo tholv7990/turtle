@@ -1,118 +1,67 @@
 @layer utilities {
 
-    :root {
-        --bg-primary: '#FFFFFF';
-        --bg-secondary: '#F6F6F6';
-        --bg-tertiary: '#EEEEEE';
-    
-        --bg-blue: '#276EF1';
-        --bg-red: '#E11900';
-        --bg-yellow: '#FFC043';
-        --bg-green: '#048848';
-    
-        --text-primary: '#000000';
-        --text-secondary: '#545454';
-        --text-tertiary: '#6B6B6B';
-    
-        --text-blue: '#276EF1';
-        --text-red: '#E11900';
-        --text-yellow: '#996F00';
-        --text-green: '#048848';
-    
-        --bg-disabled: '#F6F6F6';
-    
-        --text-disabled: '#AFAFAF';
-    
-        
-    }
-    
-    .dark {
-        --bg-primary: '#141414';
-        --bg-secondary: '#1F1F1F';
-        --bg-tertiary: '#333333';
-    
-        --text-primary: '#FFFFFF';
-        --text-secondary: '#CBCBCB';
-        --text-tertiary: '#AFAFAF';
-    
-        --bg-blue: '#276EF1';
-        --bg-red: '#AB1300';
-        --bg-yellow: '#BC8B2C';
-        --bg-green: '#03703C';
-    
-        --text-blue: '#5B91F5';
-        --text-red: '#E85C4A';
-        --text-yellow: '#FFCF70';
-        --text-green: '#06C167';
-    
-        --bg-disabled: '#1F1F1F';
-    
-        --text-disabled: '#545454';
-    }
-    
-    
     .bg-primary {
-        background-color: var(--bg-primary);
+       @apply bg-white dark:bg-gray-900;
     }
     
     .bg-secondary {
-        background-color: var(--bg-secondary);
+       @apply bg-gray-50 dark:bg-gray-800;
     }
     
     .bg-tertiary {
-        background-color: var(--bg-tertiary);
+        @apply bg-gray-100 dark:bg-gray-700;
     }
     
     .bg-blue {
-        background-color: var(--bg-blue);
+        @apply bg-blue-400 dark:bg-blue-400;
     }
     
     .bg-red {
-        background-color: var(--bg-red);
+       @apply bg-red-400 dark:bg-red-500;
     }
     
     .bg-yellow {
-        background-color: var(--bg-yellow);
+        @apply bg-yellow-400 dark:bg-yellow-500;
     }
     
     .bg-green {
-        background-color: var(--bg-green);
+       @apply bg-green-400 dark:bg-green-500;
     }
     
     .bg-disabled {
-        background-color: var(--bg-disabled);
+       @apply bg-gray-50 dark:bg-gray-800;
     }
     
     .text-primary {
-        color: var(--text-primary);
+        @apply text-black dark:text-white;
     }
     
     .text-secondary {
-        color: var(--text-secondary);
+       @apply text-gray-600 dark:text-gray-300;
     }
     
     .text-tertiary {
-        color: var(--text-tertiary);
+        @apply text-gray-500 dark:text-gray-400;
     }
     
     .text-blue {
-        color: var(--text-blue);
+        @apply text-blue-400 dark:text-blue-400;
     }
     
     .text-red {
-        color: var(--text-red);
+        @apply text-red-500 dark:text-red-300;
     }
     
     .text-yellow {
-        color: var(--text-yellow);
+        @apply text-yellow-600 dark:text-yellow-300;
     }
     
     .text-green {
-        color: var(--text-green);
+       @apply text-green-400 dark:text-green-300;
     }
     
     .text-disabled {
-        color: var(--text-disabled);
+        @apply text-gray-400 dark:text-gray-600;
     }
 
 }
