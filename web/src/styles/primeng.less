@@ -15,7 +15,7 @@
         }
 
         tr {
-            @apply  !bg-primarylast: border-none hover: !bg-secondary cursor-pointer;
+            @apply  !bg-primary last:border-none hover:!bg-secondary cursor-pointer;
 
             &:hover {
                 @apply  !bg-secondary;
@@ -50,11 +50,11 @@
     p-dropdown {
 
         .p-dropdown {
-            @apply text-primary  !outline-none border-light-30 dark:border-dark-30 border-[1px] text-sm px-3 h-11 w-full rounded hover:border-yellow-light hover:dark: !border-yellow-dark placeholder:text-tertiary;
+            @apply text-primary  !outline-none  border-[1px] text-sm px-3 h-11 w-full rounded  placeholder:text-tertiary;
         }
 
         .p-dropdown-items-wrapper {
-            @apply  !bg-primary text-primary border-light-30 dark: border-dark-30 border-[1px];
+            @apply  !bg-primary text-primary  border-[1px];
         }
 
         .p-dropdown-item {
@@ -70,7 +70,7 @@
         }
 
         .p-dropdown:not(.p-disabled) {
-            @apply hover:  !border-yellow-light hover:dark: !border-yellow-dark;
+           
         }
 
 

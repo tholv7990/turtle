@@ -3,7 +3,7 @@
         <div class="nav-bar">
             <legend class="flex-auto text-secondary"> Trading Journal</legend>
 
-            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-dark-10 w-8 h-8"><i class="fa fa-plus"></i></button>
+            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-black w-8 h-8"><i class="fa fa-plus"></i></button>
         </div>
 
         <p-table  [value]="vm?.journals" sortField="open" rowGroupMode="subheader" groupRowsBy="date">
