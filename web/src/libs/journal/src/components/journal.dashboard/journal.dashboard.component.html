@@ -1,9 +1,9 @@
 <ng-container *ngIf="vm$ | async as vm">
     <div class="flex flex-col">
-        <div class="nav-bar">
+        <div class="flex flex-row justify-between mb-3">
             <legend class="flex-auto text-secondary"> Trading Journal</legend>
 
-            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-black w-8 h-8"><i class="fa fa-plus"></i></button>
+            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-white w-8 h-8"><i class="fa fa-plus"></i></button>
         </div>
 
         <p-table  [value]="vm?.journals" sortField="open" rowGroupMode="subheader" groupRowsBy="date">

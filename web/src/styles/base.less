@@ -22,12 +22,11 @@
     }
 
 
-    .flex-auto {
-        flex: 0 0 auto;
-    }
+    button {
 
-    .flex-fill {
-        flex: 1;
+        &:disabled {
+            @apply cursor-not-allowed opacity-70;
+        }
     }
 
 }
