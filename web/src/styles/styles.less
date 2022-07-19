@@ -4,84 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './color.less';
-@import './fieldset.less';
+@layer components {
+    @import './color.less';
+    @import './fieldset.less';
+}
+
+@layer base {
+    @import './reset.less';
+    @import './base.less';
+   
+}
+
+@layer utilities {
+    
+}
+
+
+
 @import './button.less';
 @import './primeng.less';
 @import './froala.less';
 
-
-
-html,
-body {
-
-    @apply antialiased bg-secondary !text-primary overflow-hidden h-screen relative;
-}
-
-input,
-textarea {
-    @apply bg-primary text-primary outline-none  text-sm px-3 h-9 w-full rounded  placeholder:text-tertiary;
-}
-
-textarea {
-    @apply p-2;
-}
-
-label {
-    @apply text-secondary text-xs w-full block mb-1;
-}
-
-legend {
-    @apply text-lg text-primary font-bold;
-}
-
-
-.flex-auto {
-    flex: 0 0 auto;
-}
-
-.flex-fill {
-    flex: 1;
-}
-
-
-
-.required {
-    &:after {
-        content: ' *';
-        @apply text-red;
-    }
-
-
-}
-
-.text-hover {
-    &:hover {
-        @apply text-yellow;
-    }
-}
-
-.ng-invalid .ng-dirty {
-   
-}
-
-.nav-bar {
-    @apply flex flex-row justify-between items-center h-10 w-full mb-2;
-}
-
-.flex-fill {
-    flex: 1;
-}
-
-.flex-auto {
-    flex: 0 0 auto;
-}
-
-
-
-* {
-    font-family: 'Open Sans', sans-serif;
-}
 
 
 

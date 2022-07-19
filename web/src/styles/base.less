@@ -1,0 +1,33 @@
+@layer base {
+    html,
+    body {
+        @apply antialiased bg-secondary !text-primary overflow-hidden h-screen relative;
+    }
+
+    input,
+    textarea {
+        @apply bg-primary text-primary outline-none  text-sm px-3 h-9 w-full rounded  placeholder:text-tertiary;
+    }
+
+    textarea {
+        @apply p-2;
+    }
+
+    label {
+        @apply text-secondary text-xs w-full block mb-1;
+    }
+
+    legend {
+        @apply text-lg text-primary font-bold;
+    }
+
+
+    .flex-auto {
+        flex: 0 0 auto;
+    }
+
+    .flex-fill {
+        flex: 1;
+    }
+
+}

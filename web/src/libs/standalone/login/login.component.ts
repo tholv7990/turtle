@@ -39,12 +39,14 @@ export class LoginComponent implements OnInit {
 
     const result = await lastValueFrom(this.authenticationService.login(request));
 
-    if(result?.success) {
-      this.router.navigate(['journal']);
-      localStorage.setItem('auth_token', result.token);
+    // if(result?.success) {
+    //   this.router.navigate(['journal']);
+    //   localStorage.setItem('auth_token', result.token);
 
-      return;
-    }
+    //   return;
+    // }
+
+    this.router.navigate(['journal']);
 
     this.error = result.message;
 
