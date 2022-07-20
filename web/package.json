@@ -38,7 +38,7 @@
     "ngx-awesome-uploader": "^13.0.1",
     "ngx-s3-uploader": "^9.0.1",
     "primeicons": "^5.0.0",
-    "primeng": "^13.4.1",
+    "primeng": "^14.0.0",
     "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
     "util": "^0.12.4",
