@@ -1,80 +1,74 @@
+p-table {
+    @apply  !border-none;
 
-    p-calendar {}
+    th {
+        @apply bg-primary !border-t-[1px] !border-solid border-gray !text-secondary !p-2 !font-semibold !text-xs;
+    }
 
+    td {
+        @apply  !border-t-[1px] !border-solid border-gray !text-primary !p-2 !font-semibold !text-xs;
+    }
 
-    p-table {
-        @apply  !border-none;
+    tr {
+        @apply  !bg-primary last:border-none hover:!bg-secondary cursor-pointer;
 
-        th {
-            @apply  bg-primary !border-t-[1px] !border-solid border-gray  !text-secondary !p-2 !font-semibold !text-xs;
-        }
-
-        td {
-            @apply !border-t-[1px] !border-solid  border-gray !text-primary !p-2 !font-semibold !text-xs;
-        }
-
-        tr {
-            @apply  !bg-primary last:border-none hover:!bg-secondary cursor-pointer;
-
-            &:hover {
-                @apply  !bg-secondary;
-            }
+        &:hover {
+            @apply  !bg-secondary;
         }
     }
+}
 
 
-
-
-    .p-dialog {
-        @apply  !bg-secondary;
-    }
-
-    .p-dialog-header {
-        @apply  !hidden;
-    }
-
-    .p-dialog-content {
-        @apply  !p-2 !bg-secondary text-primary h-full w-full shadow-md;
-    }
-
-
-
-
+p-dialog {
 
     .p-dialog-mask {
         background-color: rgba(0, 0, 0, 0.5);
         @apply  !pointer-events-auto;
     }
 
-    p-dropdown {
-
-        .p-dropdown {
-            @apply text-primary  !outline-none  border-[1px] text-sm px-3 h-11 w-full rounded  placeholder:text-tertiary;
-        }
-
-        .p-dropdown-items-wrapper {
-            @apply  !bg-primary text-primary  border-[1px];
-        }
-
-        .p-dropdown-item {
-            @apply  !bg-primary text-primary;
-        }
-
-        .p-dropdown-item {
-            @apply hover:!bg-secondary;
-        }
-
-        .p-focus {
-            @apply  !shadow-none;
-        }
-
-        .p-dropdown:not(.p-disabled) {
-           
-        }
-
-
+    .p-dialog {
+        @apply  !bg-secondary;
     }
 
-    .p-button:focus {
-        box-shadow: none !important;
+    .p-dialog-header {
+        display: hidden !important;
     }
+
+    .p-dialog-content {
+        @apply  !p-2 !bg-secondary text-primary h-full w-full shadow-md;
+    }
+
+}
+
+
+
+p-dropdown {
+
+    .p-dropdown {
+        @apply text-primary !outline-none border-[1px] text-sm px-3 h-11 w-full rounded placeholder:text-tertiary;
+    }
+
+    .p-dropdown-items-wrapper {
+        @apply  !bg-primary text-primary border-[1px];
+    }
+
+    .p-dropdown-item {
+        @apply  !bg-primary text-primary;
+    }
+
+    .p-dropdown-item {
+        @apply hover:!bg-secondary;
+    }
+
+    .p-focus {
+        @apply  !shadow-none;
+    }
+
+    .p-dropdown:not(.p-disabled) {}
+
+
+}
+
+.p-button:focus {
+    box-shadow: none !important;
+}
