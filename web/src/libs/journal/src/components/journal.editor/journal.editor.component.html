@@ -1,8 +1,8 @@
 <div class="flex bg-primary flex-col h-full w-full overflow-hidden" [formGroup]="form">
 
-    <div class="flex-auto flex flex-row items-center justify-between text-primary h-8">
-        <span class="font-semibold">New Trade</span>
-        <button (click)="close.emit()" class="btn w-4 text-xl"><i class="fa fa-times"></i></button>
+    <div class="p-custom-header">
+        <span class="text-header">New Trade</span>
+        <button (click)="close.emit()" class="btn btn-close"><i class="fa fa-times"></i></button>
     </div>
 
     <div class="flex-fill overflow-auto p-2">
