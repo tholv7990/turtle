@@ -1,19 +1,32 @@
+@import './variable.less';
+
 p-table {
-    @apply  !border-none;
+  
+    border: none !important;
 
     th {
-        @apply bg-primary !border-t-[1px] !border-solid border-gray !text-secondary !p-2 !font-semibold !text-xs;
+        background-color: var(--bg-primary) !important;
+        border-bottom: 1px solid var(--border-gray) !important;
+        color: var(--text-secondary) !important;
+        font-size: @text-sm;
+        font-weight: 600;
+        padding: 5px !important;
     }
 
     td {
-        @apply  !border-t-[1px] !border-solid border-gray !text-primary !p-2 !font-semibold !text-xs;
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        border-bottom: 1px solid var(--border-gray) !important;
+        font-size: @text-sm;
+        padding: 5px !important;
     }
 
     tr {
-        @apply  !bg-primary last:border-none hover:!bg-secondary cursor-pointer;
-
+        background-color: var(--bg-primary) !important;
+        cursor: pointer;
+       
         &:hover {
-            @apply  !bg-secondary;
+            background-color: var(--bg-secondary) !important;
         }
     }
 }
@@ -22,33 +35,37 @@ p-table {
 
 
 
-p-dropdown {
+// p-dropdown {
 
-    .p-dropdown {
-        @apply text-primary !outline-none border-[1px] text-sm px-3 h-11 w-full rounded placeholder:text-tertiary;
-    }
+//     .p-dropdown {
+//         @apply text-primary !outline-none border-[1px] text-sm px-3 h-11 w-full rounded placeholder:text-tertiary;
+//     }
 
-    .p-dropdown-items-wrapper {
-        @apply  !bg-primary text-primary border-[1px];
-    }
+//     .p-dropdown-items-wrapper {
+//         @apply  !bg-primary text-primary border-[1px];
+//     }
 
-    .p-dropdown-item {
-        @apply  !bg-primary text-primary;
-    }
+//     .p-dropdown-item {
+//         @apply  !bg-primary text-primary;
+//     }
 
-    .p-dropdown-item {
-        @apply hover:!bg-secondary;
-    }
+//     .p-dropdown-item {
+//         @apply hover:!bg-secondary;
+//     }
 
-    .p-focus {
-        @apply  !shadow-none;
-    }
+//     .p-focus {
+//         @apply  !shadow-none;
+//     }
 
-    .p-dropdown:not(.p-disabled) {}
+//     .p-dropdown:not(.p-disabled) {}
 
 
-}
+// }
 
-.p-button:focus {
-    box-shadow: none !important;
+// .p-button:focus {
+//     box-shadow: none !important;
+// }
+
+.p-dialog-header {
+    display: none !important;
 }

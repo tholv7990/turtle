@@ -1,9 +1,9 @@
 <ng-container *ngIf="vm$ | async as vm">
     <div class="flex flex-col">
-        <div class="flex flex-row justify-between mb-3">
-            <legend class="flex-auto text-secondary"> Trading Journal</legend>
+        <div class="journal-header">
+            <legend class="text-primary">Journal</legend>
 
-            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-white w-8 h-8"><i class="fa fa-plus"></i></button>
+            <button (click)="onOpenDialog(DialogType.New)" class="btn bg-blue text-white"><i class="fa fa-plus"></i></button>
         </div>
 
         <p-table  [value]="vm?.journals" sortField="open" rowGroupMode="subheader" groupRowsBy="date">
@@ -24,10 +24,10 @@
             </ng-template>
             <ng-template pTemplate="groupheader" let-trade let-rowIndex="rowIndex" let-expanded="expanded">
                 <tr pRowGroupHeader>
-                    <td colspan="11" class="!p-0" >
-                        <div class="bg-secondary flex flex-row justify-between items-center h-full w-full p-2">
-                            <span class="font-bold ml-2">{{trade?.open | dateTime:'date'}}</span>
-                            <button type="button" pButton pRipple [pRowToggler]="trade" class="btn text-lg font-bold w-4"><i class="fa" [ngClass]="{'fa-angle-down': !expanded, 'fa-angle-up': expanded}"></i></button>
+                    <td colspan="11" class="p-0" >
+                        <div class="group">
+                            <span class="date">{{trade?.open | dateTime:'date'}}</span>
+                            <button type="button" pButton pRipple [pRowToggler]="trade" class="btn"><i class="fa" [ngClass]="{'fa-angle-down': !expanded, 'fa-angle-up': expanded}"></i></button>
                         </div>
                       
                     </td>
@@ -42,14 +42,14 @@
                     <td>{{trade?.strategy}}</td>
                     <td>
                         <div class="flex flex-col">
-                            <span class="text-[13px]"> {{trade?.open | dateTime:'date'}}</span>
+                            <span class="text-sm"> {{trade?.open | dateTime:'date'}}</span>
                             <span class="text-secondary text-xs">{{trade?.open | dateTime:'time'}}</span>
                         </div>
 
                     </td>
                     <td>
                         <div class="flex flex-col">
-                            <span class="text-[13px]"> {{trade?.close | dateTime:'date'}}</span>
+                            <span class="text-sm"> {{trade?.close | dateTime:'date'}}</span>
                             <span class="text-secondary text-xs">{{trade?.close | dateTime:'time'}}</span>
                         </div>
 

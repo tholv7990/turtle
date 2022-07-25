@@ -1,28 +1,61 @@
+@import '../../../../../styles/variable.less';
 journal-dashboard {
 
+    .journal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 36px !important;
 
-
-
-    .Short {
-        @apply bg-red-400 dark:bg-red-500 text-white p-1 rounded text-xs;
+        .btn {
+            color: #fff;
+        }
     }
 
+    .group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        width: 100%;
+        font-size: @text-sm;
+        font-weight: bold !important;
+        background-color: var(--bg-secondary) !important;
+
+        .btn {
+            font-weight: bold;
+            font-size: @text-lg;
+        }
+    }
+
+
+    .Short, .Win, .Lost, .Open, .Long{
+        color: #fff;
+        border-radius: 4px;
+        font-size: @text-xs;
+        padding: 4px;
+    }
+
+    .Short {
+        background-color: var(--bg-red);
+    }
+
+    .Long {
+        background-color: var(--bg-green);
+    }
+
+
     .Win {
-        @apply bg-green-400 dark:bg-green-500 !text-white p-1 rounded text-xs;
+        background-color: var(--bg-green);
     }
 
     .Lost {
-        @apply bg-red-400 dark:bg-red-500 text-white p-1 rounded text-xs;
+        background-color: var(--bg-red);
     }
 
     .Open {
-        @apply bg-yellow-400 dark:bg-yellow-500 text-white p-1 rounded text-xs;
+        background-color: var(--bg-yellow);
     }
-
-    tr {
-        @apply hover:bg-gray-50 hover:dark:bg-gray-800;
-    }
-
 
 
 
