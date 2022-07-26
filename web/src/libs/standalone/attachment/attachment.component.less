@@ -1,46 +1,86 @@
+@import '../../../styles/variable.less';
+
 attachment {
 
     ngx-awesome-uploader {
-
-        @apply max-w-none w-auto h-auto !overflow-hidden;
+        display: flex;
+        flex-direction: row;
+        max-width: 100% !important;
+        align-items: center !important;
+        overflow: hidden;
 
         .file-drop-wrapper {
-            @apply  !bg-inherit !p-0 !w-[120px] mr-2;
+
+            background-color: inherit !important;
+            padding: 0px !important;
+            width: 120px !important;
+            margin-right: 8px;
+
+          
     
             .custom-drag {
-                @apply  !bg-inherit w-[120px] h-[90px] flex items-center justify-center !p-2 !m-0 !border-[1px]  !border-solid cursor-pointer;
+                background-color: var(--bg-secondary) !important;
+                width: 120px;
+                height: 90px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: none !important;
+                
             }
         }
 
-        @apply !flex !flex-row items-center !max-w-full;
+     
 
         file-drop {
-            @apply  !p-0;
+            padding: 0px !important;
+
+       
 
             .dropzoneTemplate {
-                @apply flex items-center justify-center;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               color: var(--text-primary) !important;
+
+               .fa-plus {
+                color: var(--text-primary) !important;
+                font-size: @text-lg;
+               }
             }
         }
 
         .files-preview-wrapper {
-            @apply !overflow-auto;
+            overflow: auto !important;
         }
 
         file-preview-container {
-            @apply !flex-row !bg-inherit;
+
+            background-color: inherit !important;
+            display: flex;
+            flex-direction: row;
 
             file-preview-item {
 
                 height: 90px;
                 width: 120px;
 
-                @apply m-0  mr-2 !p-0 rounded !border-[1px]  !border-solid;
+                margin: 0px;
+                margin-right: 8px;
+                padding: 0px !important;
+                border: 1px solid var(--border-gray);
+
 
                 .file-preview-wrapper {
-                    @apply border-none h-full p-1 flex-col overflow-auto;
+                    border: none;
+                    height: 100%;
+                    padding: 4px;
+                    overflow: auto;
+                 
 
                     .file-preview-thumbnail {
-                        @apply hidden;
+                        display: none;
                     }
 
                     .file-preview-description {
@@ -48,7 +88,7 @@ attachment {
                     }
 
                     .file-preview-actions {
-                        @apply w-full;
+                        width: 100%;
                     }
                 }
 
