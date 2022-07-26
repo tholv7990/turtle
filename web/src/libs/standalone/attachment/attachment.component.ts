@@ -34,20 +34,19 @@ export class AttachmentComponent implements OnInit {
   public ngOnInit() {}
 
   public onValidationError(er: ValidationError): void {
-    console.log('validationError', er);
+   
   }
 
   public onUploadSuccess(res: FilePreviewModel): void {
-    console.log('uploadSuccess', res);
-    // console.log(this.myFiles)
+  
   }
 
   public onUploadFail(er: HttpErrorResponse): void {
-    console.log('uploadFail', er);
+   
   }
 
   public onRemoveSuccess(res: FilePreviewModel): void {
-    console.log('removeSuccess', res);
+   
   }
 
   public onFileAdded(file: FilePreviewModel): void {
@@ -55,7 +54,7 @@ export class AttachmentComponent implements OnInit {
   }
 
   public onFileRemoved(file: FilePreviewModel): void {
-    console.log('fileRemoved', this.uploader.files);
+   
   }
 
   public removeFile(): void {

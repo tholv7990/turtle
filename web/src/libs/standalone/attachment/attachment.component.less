@@ -43,10 +43,10 @@ attachment {
                display: flex;
                align-items: center;
                justify-content: center;
-               color: var(--text-primary) !important;
+               color: var(--text-secondary) !important;
 
                .fa-plus {
-                color: var(--text-primary) !important;
+                color: var(--text-secondary) !important;
                 font-size: @text-lg;
                }
             }
@@ -96,16 +96,18 @@ attachment {
 
                     .file-preview-description {
                         padding: 0px !important;
-                        font-size: @text-xs;
+                       
+                        p, .file-preview-size {
+                            color: var(--text-secondary) !important;
+                            font-size: @text-xs;
+                        }
                     }
 
                     .file-preview-actions {
 
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-
-                        position: relative;
+                        position: absolute !important;
+                        bottom: 5px;
+                        right: 5px;
                         height: 20px !important;
                         width: 20px !important;
 
@@ -114,15 +116,18 @@ attachment {
                         }
 
                         .ngx-close-icon-wrapper {
+                            margin: 0px !important;
                            
 
                             &:hover {
                                 background-color: var(--bg-tertiary) !important;
+                              
                             }
 
                             .ngx-close-icon {
                                 height: 16px;
                                 width: 16px;
+                                color: var(--text-primary);
                             }
                         }
                     }

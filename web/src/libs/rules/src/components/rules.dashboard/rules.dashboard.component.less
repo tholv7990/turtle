@@ -4,22 +4,28 @@ rules-dashboard {
         width: 500px
     }
 
-    legend {
-        @apply mb-4;
-    }
-
     .discipline {
-      @apply  h-full w-full flex flex-row items-center justify-center overflow-auto;
+      
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
 
-      &-left {
-          width: 250px;
-         @apply  h-full sticky top-0;
-      }
 
-      &-right {
-          width: 900px;
-          @apply  h-full flex flex-col;
-      }
+
+        &-left {
+            width: 250px;
+            height: 100%;
+            position: sticky;
+            top: 0;
+        }
+
+        &-right {
+            width: 900px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
     }
 
 }
