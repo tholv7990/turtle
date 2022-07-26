@@ -1,13 +1,13 @@
-<div class="box-primary h-full w-full flex flex-row items-center justify-center" [formGroup]="form">
-    <div class="rounded-xl overflow-hidden h-3/5 w-[36rem] ">
-  
+<div class="register-container" [formGroup]="form">
+
       <div class="fieldset">
   
-        <div class="text-xl text-yellow font-bold uppercase !mb-8"  >Turtle Trading</div>
+       <div class="text-branding">Turtle Trading</div>
   
-        <div class="flex flex-row items-center justify-start mb-8">
-          <legend (click)="onLogin()"  class="uppercase text-secondary mr-5 cursor-pointer">Login</legend>
-          <legend class="uppercase">Register</legend> 
+        <div class="page">
+          <legend class="mr-20">Register</legend> 
+          <legend (click)="onLogin()" class="text-secondary" >Login</legend>
+          
         </div>
        
         <div class="field">
@@ -49,6 +49,5 @@
         <button (click)="onRegister()" [disabled]="form?.invalid" class="btn w-full bg-yellow text-gray-900 h-12 mt-8">Register</button>
       </div>
   
-    </div>
    
   </div>

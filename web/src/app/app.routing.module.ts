@@ -32,7 +32,8 @@ const routes: Routes = [
         path: 'import',
         loadChildren: () => import('../libs/bulk.import').then(m => m.BulkImportModule),
         data: { title: 'Bulk Import', animation: 'import' }
-      }
+      },
+      { path: '', redirectTo: 'journal', pathMatch: 'full'  }
     ]
   },
   { path: 'login', component: LoginComponent },
