@@ -1,51 +1,49 @@
 <div class="flex bg-inherit flex-col h-full w-full overflow-hidden" [formGroup]="form">
 
     <div class="p-custom-header">
-        <span class="text-header">New Trade</span>
+        <div class="field-row w-40">
+
+            <div class="field">
+                <label class="required">Account</label>
+                <div class="value">
+                    <p-dropdown [options]="accounts"  optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Balance</label>
+                <div class="value">
+                  {{20000 | currency}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Risk</label>
+                <div class="value">
+                   {{0.01 | percent}}
+                </div>
+            </div>
+        </div>
         <button (click)="close.emit()" class="btn btn-close"><i class="fa fa-times"></i></button>
     </div>
 
     <div class="p-custom-body">
 
-        <div class="fieldset w-40">
-
-            <div class="field-row">
-
-                <div class="field">
-                    <label class="required">Account</label>
-                    <div class="value">
-                        <p-dropdown [options]="accounts"  optionLabel="name"></p-dropdown>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Balance</label>
-                    <div class="value">
-                      {{20000 | currency}}
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Risk</label>
-                    <div class="value">
-                       {{0.01 | percent}}
-                    </div>
-                </div>
-            </div>
+        <div class="fieldset content-left">
 
             <div class="field-row">
 
                 <div class="field">
                     <label class="required">Symbol</label>
                     <div class="value">
-                       <input formControlName="symbol" type="text" placeholder="Symbol" />
+                       <input formControlName="symbol" type="text" placeholder="<Symbol>" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="required">Leverage</label>
                     <div class="value">
-                        <input type="number" formControlName="leverage" placeholder="Leverage" />
+                        <input type="number" formControlName="leverage" placeholder="<Leverage>" />
                     </div>
                 </div>
 
@@ -66,44 +64,46 @@
                 <div class="field">
                     <label class="required">Entry</label>
                     <div class="value">
-                       <input formControlName="entry" type="number" placeholder="Entry" />
+                       <input formControlName="entry" type="number" placeholder="<Entry>" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="required">Exist</label>
                     <div class="value">
-                        <input type="number" formControlName="exist" placeholder="Exist" />
+                        <input type="number" formControlName="exist" placeholder="<Exist>" />
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="required">Target</label>
                     <div class="value">
-                        <input type="number" formControlName="target" placeholder="Target" />
+                        <input type="number" formControlName="target" placeholder="<Target>" />
                     </div>
                 </div>
             </div>
 
+            <button class="btn bg-yellow text-black">Calculate</button>
  
         </div>
 
 
-        <div class="fieldset w-60">
+        <div class="fieldset content-right">
 
-            <div class="field">
+            <div class="field flex-fill">
                 <label>Note</label>
-                <div class="value">
-                    <textarea [froalaEditor]='editorOptions'  formControlName="note" autosize rows="5"></textarea>
+                <div class="value relative h-full" id="container">
+                    <textarea placeholder="Start to type something..." [froalaEditor]='editorOptions'  formControlName="note" autosize rows="5"></textarea>
                 </div>
             </div>
 
-            <div class="field">
-                <label>Before</label>
+            <div class="field flex-auto">
+                <label>Attachments</label>
                 <div class="value">
                   <attachment></attachment>
                 </div>
             </div>
+
 
         </div>
 
@@ -112,9 +112,9 @@
 
 
 
-    <div class="flex-auto flex flex-row items-center justify-end p-2">
+    <div class="p-custom-footer">
 
-        <button class="btn w-10 text-sm bg-blue-light dark:bg-blue-dark text-black">Save</button>
+        <button class="btn btn-default">Save</button>
     </div>
 
 </div>

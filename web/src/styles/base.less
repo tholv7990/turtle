@@ -20,6 +20,13 @@ textarea {
     border: none;
     padding: 6px 12px;
     font-size: @text-base !important;
+
+    &.ng-invalid {
+
+        &::placeholder { 
+            color: var(--text-red);
+          }
+    }
 }
 
 label {

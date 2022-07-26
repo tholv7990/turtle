@@ -31,7 +31,7 @@ export class JournalEditorComponent implements OnInit {
     toolbarInline: false,
     theme: this.theme,
     listAdvancedTypes: true,
-    placeHolder: 'type something...',
+    placeholderText: 'Start typing something...',
     tableEditButtons: ['tableHeader', 'tableRemove', '|', 'tableRows', 'tableColumns', 'tableStyle', '-', 'tableCells', 'tableCellBackground', 'tableCellVerticalAlign', 'tableCellHorizontalAlign', 'tableCellStyle'],
     imageEditButtons: ['imageReplace', 'imageAlign', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize'],
     toolbarButtons: {
@@ -70,13 +70,13 @@ export class JournalEditorComponent implements OnInit {
 
     this.form = builder.group({
       _id: [null, []],
-      account: [null, []],
-      side: [TradingSide.Long, []],
+      account: [null, [Validators.required]],
+      side: [TradingSide.Long, [Validators.required]],
       symbol: [null, Validators.required],
-      leverage: [20, []],
+      leverage: [20, [Validators.required]],
       entry: [0, Validators.required],
-      exist: [0, []],
-      target: [0, []],
+      exist: [0, [Validators.required]],
+      target: [0, [Validators.required]],
       note: [null, []]
     })
   }
