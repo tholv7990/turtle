@@ -1,7 +1,14 @@
 @import './variable.less';
 
+button {
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
 .btn {
-    padding: 5px 10px;
+    padding: 6px 12px;
     font-weight: 600;
     cursor: pointer;
     display: flex;

@@ -27,7 +27,7 @@
         </div>
   
         <div class="field">
-          <label class="required">PassWord</label>
+          <label class="required">Password</label>
   
           <div class="value">
             <input type="password" placeholder="<PassWord>" formControlName="password" />
@@ -35,7 +35,7 @@
         </div>
   
         <div class="field mt-6">
-          <label class="required">Confirm PassWord</label>
+          <label class="required">Confirm Password</label>
   
           <div class="value">
             <input type="password" placeholder="<Confirm PassWord>" formControlName="confirmPassword" />
@@ -46,7 +46,7 @@
           {{form.get('email')?.errors?.message}}.
         </div>
   
-        <button (click)="onRegister()" [disabled]="form?.invalid" class="btn w-full bg-yellow text-gray-900 h-12 mt-8">Register</button>
+        <button (click)="onRegister()" [disabled]="form?.invalid" class="btn w-full bg-yellow text-primary">Register</button>
       </div>
   
    
