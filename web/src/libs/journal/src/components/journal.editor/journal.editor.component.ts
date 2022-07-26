@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { TradingSide } from '@libs/model';
+import { Journal, TradingSide } from '@libs/model';
 import Decimal from 'decimal.js';
 import { lastValueFrom } from 'rxjs';
 import { JournalService } from '../../services';
@@ -15,7 +15,7 @@ import { JournalService } from '../../services';
 export class JournalEditorComponent implements OnInit {
 
   @Output() public close = new EventEmitter();
-  @Output() public expand = new EventEmitter();
+  @Output() public save = new EventEmitter<Journal>();
 
   public accounts = [
     { _id: '1', name: 'Demo' },
@@ -115,10 +115,7 @@ export class JournalEditorComponent implements OnInit {
 
   public async onSave(){
 
-    const request = this.form.value;
-
-    const result = await lastValueFrom(this.journalService.save(request));
-
+    this.save.emit(this.form.value);
 
   }
 

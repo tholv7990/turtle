@@ -66,7 +66,7 @@
     </div>
 
     <p-dialog appendTo="body" header="Title"  visible="true" *ngIf="vm?.dialog === DialogType.New" showHeader="false" closable="false" closeOnEscape="false" styleClass="p-dialog-xl">
-       <journal-editor (expand)="onExpand()" (close)="onOpenDialog(DialogType.None)"></journal-editor>
+       <journal-editor (save)="onSave($event)" (close)="onOpenDialog(DialogType.None)"></journal-editor>
     </p-dialog>
 
 </ng-container>

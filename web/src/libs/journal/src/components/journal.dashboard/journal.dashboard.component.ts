@@ -4,6 +4,8 @@ import { StateComponent } from '@libs/standalone';
 import { DateUtility } from '@libs/utils/date.utility';
 import Enumerable from 'linq';
 import { DateTime } from 'luxon';
+import { lastValueFrom } from 'rxjs';
+import { JournalService } from '../../services';
 
 interface JournalDashboardComponentVM {
   journals: Journal[];
@@ -153,7 +155,7 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
 
   public DialogType = DialogType;
 
-  constructor() { 
+  constructor(private journalService: JournalService) { 
     super(initialState);
 
     this.vm.journals = Enumerable.from(this.items)
@@ -173,8 +175,12 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     this.setState({dialog: dialog});
   }
 
-  public onExpand(){
-    
+  public async onSave(request){
+
+    const result = await lastValueFrom(this.journalService.save(request));
+
+    this.setState({dialog: DialogType.None});
+
   }
 
 }
