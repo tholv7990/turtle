@@ -1,0 +1,37 @@
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.field-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .field {
+        flex: 1;
+    }
+}
+
+.required {
+    
+    &:after {
+        content : ' *';
+        color : var(--text-red);
+    }
+
+}
+
+.value {
+    font-size: @text-base;
+}

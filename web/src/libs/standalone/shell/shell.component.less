@@ -11,7 +11,8 @@ shell {
         display: flex;
         align-items: center;
         padding: 10px;
-        background-color: var(--bg-secondary);
+        padding-right: 0px;
+        background-color: var(--bg-primary);
 
         .menu-item,
         .menu-account,
@@ -26,11 +27,14 @@ shell {
 
         .menu-actions {
 
+            padding-right: 0px;
+
             button {
                 margin: 0px 5px;
                 color: var(--text-primary) !important;
                 
             }
+
         }
 
         .menu-account { 
@@ -38,6 +42,10 @@ shell {
 
             .account-item {
                 margin: 0px 10px;
+            }
+
+            .mr-5 {
+                margin-right: 5px;
             }
         }
 
