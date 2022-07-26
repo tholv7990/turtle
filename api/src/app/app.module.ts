@@ -1,5 +1,6 @@
 import { AttachmentModule } from '@libs/features/attachment';
 import { AuthenticationModule } from '@libs/features/authentication';
+import { JournalModule } from '@libs/features/journal/journal.module';
 import { DatabaseModule } from '@libs/providers';
 import {  Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: '/attachment',
         module: AttachmentModule
+      },
+      {
+        path: '/journal',
+        module: JournalModule
       }
     ]
   }
@@ -25,6 +30,7 @@ export const routes: Routes = [
   imports: [
     AuthenticationModule,
     AttachmentModule,
+    JournalModule,
 
     ConfigModule.forRoot(),
     RouterModule.register(routes),

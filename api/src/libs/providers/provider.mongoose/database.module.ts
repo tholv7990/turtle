@@ -4,6 +4,7 @@ import { databaseProviders } from './provider';
 import { Connection } from 'mongoose';
 import { AccountSchema } from './schema';
 import { ConfigModule } from '@nestjs/config';
+import { JournalSchema } from './schema/journal.schema';
 @Module({})
 export class DatabaseModule {
 
@@ -11,6 +12,7 @@ export class DatabaseModule {
 
     const schemas = [
       { schema: AccountSchema, name: 'account', token: SchemaTokens.Account },
+      { schema: JournalSchema, name: 'journal', token: SchemaTokens.Journal },
     ];
 
     return DatabaseModule.createProviders(schemas);

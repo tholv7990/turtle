@@ -13,14 +13,14 @@
             <div class="field">
                 <label>Balance</label>
                 <div class="value">
-                  {{20000 | currency}}
+                  {{form?.value?.balance | currency}}
                 </div>
             </div>
 
             <div class="field">
                 <label>Risk</label>
                 <div class="value">
-                   {{0.01 | percent}}
+                   {{form?.value?.risk | percent}}
                 </div>
             </div>
         </div>
@@ -83,7 +83,31 @@
                 </div>
             </div>
 
-            <button class="btn bg-yellow text-black">Calculate</button>
+            <button (click)="onCalculateSize()"  class="btn bg-yellow text-black">Calculate</button>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label>Size</label>
+                    <div class="value">
+                      {{form?.value?.size}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Amount ($)</label>
+                    <div class="value">
+                        {{form?.value?.amount}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Risk / Reward</label>
+                    <div class="value">
+                       {{form?.value?.multipleR}}
+                    </div>
+                </div>
+            </div>
  
         </div>
 
@@ -93,7 +117,7 @@
             <div class="field flex-fill">
                 <label>Note</label>
                 <div class="value relative h-full" id="container">
-                    <textarea placeholder="Start to type something..." [froalaEditor]='editorOptions'  formControlName="note" autosize rows="5"></textarea>
+                    <textarea [froalaEditor]="editorOptions"  formControlName="note" rows="5"></textarea>
                 </div>
             </div>
 
@@ -114,7 +138,7 @@
 
     <div class="p-custom-footer">
 
-        <button class="btn btn-default">Save</button>
+        <button [disabled]="form?.invalid" class="btn btn-default">Save</button>
     </div>
 
 </div>
