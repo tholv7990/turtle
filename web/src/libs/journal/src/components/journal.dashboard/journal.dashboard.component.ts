@@ -27,7 +27,10 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     {
       _id: '1',
       name: 'test',
-      account: 'Demo',
+      account: {
+        _id: '1',
+        name: 'Demo'
+      },
       strategy: 'Sonic R',
       status: TradingStatus.Win,
       side: TradingSide.Long,
@@ -49,7 +52,10 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     {
       _id: '2',
       name: 'test',
-      account: 'Demo',
+      account: {
+        _id: '1',
+        name: 'Demo'
+      },
       strategy: 'Sonic R',
       status: TradingStatus.Lost,
       side: TradingSide.Long,
@@ -71,7 +77,10 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     {
       _id: '2',
       name: 'test',
-      account: 'Demo',
+      account: {
+        _id: '1',
+        name: 'Demo'
+      },
       strategy: 'Sonic R',
       status: TradingStatus.Open,
       side: TradingSide.Short,
@@ -93,7 +102,10 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     {
       _id: '1',
       name: 'test',
-      account: 'Demo',
+      account: {
+        _id: '1',
+        name: 'Demo'
+      },
       strategy: 'Sonic R',
       status: TradingStatus.Win,
       side: TradingSide.Long,
@@ -115,7 +127,10 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
     {
       _id: '2',
       name: 'test',
-      account: 'Demo',
+      account: {
+        _id: '1',
+        name: 'Demo'
+      },
       strategy: 'Sonic R',
       status: TradingStatus.Lost,
       side: TradingSide.Long,

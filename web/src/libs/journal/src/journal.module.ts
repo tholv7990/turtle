@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AttachmentComponent } from '@libs/standalone';
+import { JournalService } from './services';
 
  const routes = [
   { path: '', component: JournalDashboardComponent }
@@ -32,6 +33,9 @@ import { AttachmentComponent } from '@libs/standalone';
     DropdownModule,
     SelectButtonModule,
     AttachmentComponent
+  ],
+  providers: [
+    JournalService
   ]
 })
 export class JournalModule { }

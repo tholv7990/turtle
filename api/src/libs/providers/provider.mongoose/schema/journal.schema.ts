@@ -2,6 +2,9 @@
 import {  Attachment, Entity, Journal, TradingSide, TradingStatus } from '@libs/model';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { DateTime } from 'luxon';
+import { SchemaTypes } from 'mongoose';
+import { AttachmentSchema } from './attachment.schema';
+import { EntitySchema } from './entity.schema';
 
 @Schema()
 export class JournalDocument implements Journal {
@@ -16,8 +19,8 @@ export class JournalDocument implements Journal {
     @Prop()
     name: string;
 
-    @Prop()
-    account: string;
+    @Prop({ type: EntitySchema })
+    account: Entity;
 
     @Prop()
     strategy: string;
@@ -67,13 +70,13 @@ export class JournalDocument implements Journal {
     @Prop()
     commission: number;
 
-    @Prop()
+    @Prop({type: AttachmentSchema})
     before: Attachment[];
 
-    @Prop()
+    @Prop({type: AttachmentSchema})
     during: Attachment[];
 
-    @Prop()
+    @Prop({type: AttachmentSchema})
     after: Attachment[];
 
     @Prop()

@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewE
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { TradingSide } from '@libs/model';
 import Decimal from 'decimal.js';
+import { lastValueFrom } from 'rxjs';
+import { JournalService } from '../../services';
 
 @Component({
   selector: 'journal-editor',
@@ -67,7 +69,7 @@ export class JournalEditorComponent implements OnInit {
 
   public form: UntypedFormGroup;
 
-  constructor(builder: UntypedFormBuilder) {
+  constructor(builder: UntypedFormBuilder, private journalService: JournalService) {
 
     this.form = builder.group({
       _id: [null, []],
@@ -108,6 +110,15 @@ export class JournalEditorComponent implements OnInit {
     const riskReward = tradeReward / tradeRisk;
 
     this.form.patchValue({size: sharesWithLeverage, amount: amountInCash, multipleR: riskReward});
+
+  }
+
+  public async onSave(){
+
+    const request = this.form.value;
+
+    const result = await lastValueFrom(this.journalService.save(request));
+
 
   }
 
