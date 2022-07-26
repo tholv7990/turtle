@@ -4,7 +4,7 @@ attachment {
 
     ngx-awesome-uploader {
         display: flex;
-        flex-direction: row;
+        flex-direction: row !important;
         max-width: 100% !important;
         align-items: center !important;
         overflow: hidden;
@@ -27,6 +27,7 @@ attachment {
                 justify-content: center;
                 cursor: pointer;
                 border: none !important;
+                padding: 0px !important;
                 
             }
         }
@@ -57,9 +58,9 @@ attachment {
 
         file-preview-container {
 
-            background-color: inherit !important;
             display: flex;
-            flex-direction: row;
+            flex-direction: row !important;
+            background-color: inherit !important;
 
             file-preview-item {
 
@@ -69,7 +70,9 @@ attachment {
                 margin: 0px;
                 margin-right: 8px;
                 padding: 0px !important;
-                border: 1px solid var(--border-gray);
+                background-color: var(--bg-secondary) !important;
+
+                
 
 
                 .file-preview-wrapper {
@@ -77,18 +80,51 @@ attachment {
                     height: 100%;
                     padding: 4px;
                     overflow: auto;
+                    flex-direction: column;
+                    position: relative;
                  
 
                     .file-preview-thumbnail {
                         display: none;
                     }
 
-                    .file-preview-description {
-                        // @apply !text-xs !p-0 text-primary;
-                    }
+                   
 
                     .file-preview-actions {
                         width: 100%;
+                    }
+
+                    .file-preview-description {
+                        padding: 0px !important;
+                        font-size: @text-xs;
+                    }
+
+                    .file-preview-actions {
+
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+
+                        position: relative;
+                        height: 20px !important;
+                        width: 20px !important;
+
+                        .ngx-checkmark-wrapper {
+                            display: none !important;
+                        }
+
+                        .ngx-close-icon-wrapper {
+                           
+
+                            &:hover {
+                                background-color: var(--bg-tertiary) !important;
+                            }
+
+                            .ngx-close-icon {
+                                height: 16px;
+                                width: 16px;
+                            }
+                        }
                     }
                 }
 
