@@ -24,19 +24,19 @@ const routes: Routes = [
         data: { title: 'Strategy', animation: 'strategyPage' }
       },
       {
-        path: 'planning',
-        loadChildren: () => import('../libs/journal').then(m => m.JournalModule),
-        data: { title: 'Planning', animation: 'planningPage' }
-      },
-      {
         path: 'import',
         loadChildren: () => import('../libs/bulk.import').then(m => m.BulkImportModule),
-        data: { title: 'Bulk Import', animation: 'import' }
+        data: { title: 'Import Trades', animation: 'import' }
       },
       {
         path: 'tags',
         loadChildren: () => import('../libs/tags').then(m => m.TagsModule),
         data: { title: 'Tags', animation: 'tags' }
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('../libs/tags').then(m => m.TagsModule),
+        data: { title: 'Settings', animation: 'settings' }
       },
       { path: '', redirectTo: 'journal', pathMatch: 'full'  }
     ]
