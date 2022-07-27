@@ -39,11 +39,11 @@ export class JournalDashboardComponent extends StateComponent<JournalDashboardCo
           if (!journals?.length)
             return;
 
-            const grouping = Enumerable.from(journals)
+          const grouping = Enumerable.from(journals)
             .orderBy(x => x.open)
             .select(x => {
               x['date'] = x.open.toLocaleString(DateTime.DATE_SHORT)
-        
+
               return x;
             })
             .toArray();
