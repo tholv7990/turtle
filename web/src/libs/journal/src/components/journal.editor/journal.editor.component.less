@@ -12,7 +12,6 @@ journal-editor {
 
     &.p-highlight {
       background-color: var(--bg-red) !important;
-      color: var(--text-black) !important;
     }
    
   }
@@ -47,6 +46,23 @@ journal-editor {
       .content-left {
         width: 40%;
       }
+    }
+
+    .custom-width {
+
+      .p-selectbutton {
+        display: flex;
+
+        .p-button {
+          flex: 1;
+        }
+
+        .Long, .Short {
+          width: 100%;
+        }
+      }
+
+      
     }
 
    

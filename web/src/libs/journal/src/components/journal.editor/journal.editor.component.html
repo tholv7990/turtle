@@ -9,180 +9,194 @@
 
         <div class="fieldset content-left">
 
-            <div class="field-row">
+            <legend>Account Details</legend>
+            <div class="card">
 
-                <div class="field">
-                    <label class="required">Account</label>
-                    <div class="value">
-                        <p-dropdown [options]="accounts" formControlName="account" optionLabel="name"></p-dropdown>
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Account</label>
+                        <div class="value">
+                            <p-dropdown [options]="accounts" formControlName="account" optionLabel="name"></p-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Balance</label>
+                        <div class="value">
+                            {{form?.value?.balance | currency}}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Risk</label>
+                        <div class="value">
+                            {{form?.value?.risk | percent}}
+                        </div>
                     </div>
                 </div>
-    
-                <div class="field">
-                    <label>Balance</label>
-                    <div class="value">
-                      {{form?.value?.balance | currency}}
+
+            </div>
+
+            <legend>Calculate Position Size</legend>
+            <div class="card">
+
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Symbol</label>
+                        <div class="value">
+                            <input formControlName="symbol" type="text" placeholder="<Symbol>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Leverage</label>
+                        <div class="value">
+                            <input type="number" formControlName="leverage" placeholder="<Leverage>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Side</label>
+                        <div class="value">
+                            <p-selectButton class="custom-width" [ngClass]="form?.get('side')?.value" [options]="positions" formControlName="side" optionLabel="name" optionValue="_id">
+                                <ng-template let-item>
+                                    <div [ngClass]="item?.name">{{item?.name}}</div>
+                                </ng-template>
+                            </p-selectButton>
+                        </div>
                     </div>
                 </div>
-    
-                <div class="field">
-                    <label>Risk</label>
-                    <div class="value">
-                       {{form?.value?.risk | percent}}
+
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Entry</label>
+                        <div class="value">
+                            <input formControlName="entry" type="number" placeholder="<Entry>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Exist</label>
+                        <div class="value">
+                            <input type="number" formControlName="exist" placeholder="<Exist>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Target</label>
+                        <div class="value">
+                            <input type="number" formControlName="target" placeholder="<Target>" />
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="onCalculateSize()" class="btn bg-yellow text-black">Calculate</button>
+
+                <div class="field-row">
+
+                    <div class="field">
+                        <label>Size</label>
+                        <div class="value">
+                            {{form?.value?.size}}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Amount ($)</label>
+                        <div class="value">
+                            {{form?.value?.amount}}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Risk / Reward</label>
+                        <div class="value">
+                            {{form?.value?.multipleR}}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="field-row">
+            <legend>Strategy</legend>
+            <div class="card">
 
-                <div class="field">
-                    <label class="required">Symbol</label>
-                    <div class="value">
-                       <input formControlName="symbol" type="text" placeholder="<Symbol>" />
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Set Up</label>
+                        <div class="value">
+                            <input formControlName="entry" type="number" placeholder="<Entry>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Entry TF</label>
+                        <div class="value">
+                            <input type="number" formControlName="exist" placeholder="<Exist>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Trade Type</label>
+                        <div class="value">
+                            <input type="number" formControlName="target" placeholder="<Target>" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label class="required">Leverage</label>
-                    <div class="value">
-                        <input type="number" formControlName="leverage" placeholder="<Leverage>" />
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Entry Type</label>
+                        <div class="value">
+                            <input formControlName="entry" type="number" placeholder="<Entry>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Target Type</label>
+                        <div class="value">
+                            <input type="number" formControlName="exist" placeholder="<Exist>" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="required">Order Type</label>
+                        <div class="value">
+                            <input type="number" formControlName="target" placeholder="<Target>" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label class="required">Side</label>
-                    <div class="value">
-                        <p-selectButton [ngClass]="form?.get('side')?.value" [options]="positions" formControlName="side" optionLabel="name" optionValue="_id">
-                            <ng-template let-item>
-                               <div [ngClass]="item?.name">{{item?.name}}</div>
-                            </ng-template>
-                        </p-selectButton>
+                <div class="field-row">
+
+                    <div class="field">
+                        <label class="required">Rules Broken</label>
+                        <div class="value">
+                            <input formControlName="entry" type="number" placeholder="<Entry>" />
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="field-row">
-
-                <div class="field">
-                    <label class="required">Entry</label>
-                    <div class="value">
-                       <input formControlName="entry" type="number" placeholder="<Entry>" />
+                    <div class="field">
+                        <label class="required">Confluences</label>
+                        <div class="value">
+                            <input type="number" formControlName="exist" placeholder="<Exist>" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="required">Exist</label>
-                    <div class="value">
-                        <input type="number" formControlName="exist" placeholder="<Exist>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Target</label>
-                    <div class="value">
-                        <input type="number" formControlName="target" placeholder="<Target>" />
-                    </div>
-                </div>
-            </div>
-
-            <button (click)="onCalculateSize()"  class="btn bg-yellow text-black">Calculate</button>
-
-            <div class="field-row">
-
-                <div class="field">
-                    <label>Size</label>
-                    <div class="value">
-                      {{form?.value?.size}}
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Amount ($)</label>
-                    <div class="value">
-                        {{form?.value?.amount}}
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>Risk / Reward</label>
-                    <div class="value">
-                       {{form?.value?.multipleR}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="field-row">
-
-                <div class="field">
-                    <label class="required">Set Up</label>
-                    <div class="value">
-                       <input formControlName="entry" type="number" placeholder="<Entry>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Entry TF</label>
-                    <div class="value">
-                        <input type="number" formControlName="exist" placeholder="<Exist>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Trade Type</label>
-                    <div class="value">
-                        <input type="number" formControlName="target" placeholder="<Target>" />
+                    <div class="field">
+                        <label class="required">Trends</label>
+                        <div class="value">
+                            <input type="number" formControlName="target" placeholder="<Target>" />
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="field-row">
 
-                <div class="field">
-                    <label class="required">Entry Type</label>
-                    <div class="value">
-                       <input formControlName="entry" type="number" placeholder="<Entry>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Target Type</label>
-                    <div class="value">
-                        <input type="number" formControlName="exist" placeholder="<Exist>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Order Type</label>
-                    <div class="value">
-                        <input type="number" formControlName="target" placeholder="<Target>" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="field-row">
-
-                <div class="field">
-                    <label class="required">Rule Break</label>
-                    <div class="value">
-                       <input formControlName="entry" type="number" placeholder="<Entry>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Confluences</label>
-                    <div class="value">
-                        <input type="number" formControlName="exist" placeholder="<Exist>" />
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="required">Trends</label>
-                    <div class="value">
-                        <input type="number" formControlName="target" placeholder="<Target>" />
-                    </div>
-                </div>
-            </div>
- 
         </div>
 
 
@@ -191,14 +205,14 @@
             <div class="field flex-fill">
                 <label>Note</label>
                 <div class="value relative h-full" id="container">
-                    <textarea [froalaEditor]="editorOptions"  formControlName="note" rows="5"></textarea>
+                    <textarea [froalaEditor]="editorOptions" formControlName="note" rows="5"></textarea>
                 </div>
             </div>
 
             <div class="field flex-auto">
                 <label>Attachments</label>
                 <div class="value">
-                  <attachment></attachment>
+                    <attachment></attachment>
                 </div>
             </div>
 
