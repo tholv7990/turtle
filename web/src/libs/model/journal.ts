@@ -15,7 +15,7 @@ export enum TradingSide {
 
 export interface Journal extends Entity {
     account: Entity;
-    strategy: string;
+    strategy: Entity;
     status: TradingStatus;
     side : TradingSide;
     symbol: string;

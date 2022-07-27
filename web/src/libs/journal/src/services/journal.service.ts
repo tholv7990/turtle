@@ -10,6 +10,18 @@ export class JournalService {
 
   constructor(private http: HttpClient) { }
 
+  public getAll(): Observable<Journal[]> {
+
+    return this.http.get<Journal[]>(`${this.journalAPI}`)
+    .pipe(
+      map(x => x),
+      catchError(error => {
+        return of([]);
+      })
+    );
+
+  }
+
   public save(request: Journal): Observable<Journal> {
 
     return this.http.post<Journal>(`${this.journalAPI}`, request)

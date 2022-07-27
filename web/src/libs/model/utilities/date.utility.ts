@@ -1,9 +1,11 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
 export enum CustomFormat {
     YYYYMMDD = 'YYYYMMDD',
     DDMMYYY = 'DDMMYYY'
 }
+
+// Settings.defaultLocale = "en-AU";
 
 export class DateUtility {
 
@@ -210,4 +212,3 @@ export class DateUtility {
 
 
 }
-

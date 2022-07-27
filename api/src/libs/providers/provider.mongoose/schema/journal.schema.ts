@@ -22,8 +22,8 @@ export class JournalDocument implements Journal {
     @Prop({ type: EntitySchema })
     account: Entity;
 
-    @Prop()
-    strategy: string;
+    @Prop({ type: EntitySchema })
+    strategy: Entity;
 
     @Prop()
     status: TradingStatus;

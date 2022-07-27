@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DialogType, Journal, TradingSide, TradingStatus } from '@libs/model';
 import { StateComponent } from '@libs/standalone';
-import { DateUtility } from '@libs/utils/date.utility';
 import Enumerable from 'linq';
 import { DateTime } from 'luxon';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 import { JournalService } from '../../services';
 
 interface JournalDashboardComponentVM {
@@ -13,8 +13,8 @@ interface JournalDashboardComponentVM {
 }
 
 const initialState = {
-  journals : [],
-  dialog : DialogType.None
+  journals: [],
+  dialog: DialogType.None
 }
 @Component({
   selector: 'journal-dashboard',
@@ -25,161 +25,48 @@ const initialState = {
 })
 export class JournalDashboardComponent extends StateComponent<JournalDashboardComponentVM> implements OnInit {
 
-  public items = [
-    {
-      _id: '1',
-      name: 'test',
-      account: {
-        _id: '1',
-        name: 'Demo'
-      },
-      strategy: 'Sonic R',
-      status: TradingStatus.Win,
-      side: TradingSide.Long,
-      symbol: 'BTC/USDT',
-      entry: 25600,
-      exist: 24999,
-      target: 27600,
-      open: DateUtility.getDateTime(new Date()),
-      close:DateUtility.getDateTime(new Date()).plus({'day': 1}) ,
-      profit: 500,
-      size: 100,
-      amount: 200,
-      cost: 1,
-      mistake: '',
-      note: 'best trade',
-      multipleR: 2,
-      commission: 1
-    },
-    {
-      _id: '2',
-      name: 'test',
-      account: {
-        _id: '1',
-        name: 'Demo'
-      },
-      strategy: 'Sonic R',
-      status: TradingStatus.Lost,
-      side: TradingSide.Long,
-      symbol: 'ETH/USDT',
-      entry: 1600,
-      exist: 1599,
-      target: 1700,
-      open: DateUtility.getDateTime(new Date()),
-      close:DateUtility.getDateTime(new Date()).plus({'day': 1}) ,
-      profit: 500,
-      size: 100,
-      amount: 200,
-      cost: 1,
-      mistake: '',
-      note: 'best trade',
-      multipleR: 2,
-      commission: 1
-    },
-    {
-      _id: '2',
-      name: 'test',
-      account: {
-        _id: '1',
-        name: 'Demo'
-      },
-      strategy: 'Sonic R',
-      status: TradingStatus.Open,
-      side: TradingSide.Short,
-      symbol: 'BTC/USDT',
-      entry: 25600,
-      exist: 24999,
-      target: 27600,
-      open: DateUtility.getDateTime(new Date()).minus({'day': 1}),
-      close:DateUtility.getDateTime(new Date()).plus({'day': 1}) ,
-      profit: 500,
-      size: 100,
-      amount: 200,
-      cost: 1,
-      mistake: '',
-      note: 'best trade',
-      multipleR: 2,
-      commission: 1
-    },
-    {
-      _id: '1',
-      name: 'test',
-      account: {
-        _id: '1',
-        name: 'Demo'
-      },
-      strategy: 'Sonic R',
-      status: TradingStatus.Win,
-      side: TradingSide.Long,
-      symbol: 'BTC/USDT',
-      entry: 25600,
-      exist: 24999,
-      target: 27600,
-      open: DateUtility.getDateTime(new Date()).minus({'day': 1}),
-      close:DateUtility.getDateTime(new Date()).plus({'day': 1}) ,
-      profit: 500,
-      size: 100,
-      amount: 200,
-      cost: 1,
-      mistake: '',
-      note: 'best trade',
-      multipleR: 2,
-      commission: 1
-    },
-    {
-      _id: '2',
-      name: 'test',
-      account: {
-        _id: '1',
-        name: 'Demo'
-      },
-      strategy: 'Sonic R',
-      status: TradingStatus.Lost,
-      side: TradingSide.Long,
-      symbol: 'ETH/USDT',
-      entry: 1600,
-      exist: 1599,
-      target: 1700,
-      open: DateUtility.getDateTime(new Date()).minus({'day': 1}),
-      close:DateUtility.getDateTime(new Date()).plus({'day': 1}) ,
-      profit: 500,
-      size: 100,
-      amount: 200,
-      cost: 1,
-      mistake: '',
-      note: 'best trade',
-      multipleR: 2,
-      commission: 1
-    },
-  ] as Journal[];
-
   public DialogType = DialogType;
 
-  constructor(private journalService: JournalService) { 
+  constructor(private router: ActivatedRoute, private journalService: JournalService) {
     super(initialState);
 
-    this.vm.journals = Enumerable.from(this.items)
-    .orderBy(x => x.open)
-    .select(x => {
-      x['date'] = x.open.toLocaleString(DateTime.DATE_SHORT)
+    this.router.data
+      .pipe(
+        map(data => {
 
-      return x;
-    })
-    .toArray();
+          const journals = data.journal as Journal[];
+
+          if (!journals?.length)
+            return;
+
+            const grouping = Enumerable.from(journals)
+            .orderBy(x => x.open)
+            .select(x => {
+              x['date'] = x.open.toLocaleString(DateTime.DATE_SHORT)
+        
+              return x;
+            })
+            .toArray();
+
+          this.setState({ journals: grouping })
+
+        })
+      ).subscribe()
+
   }
 
   ngOnInit(): void {
   }
 
   public onOpenDialog(dialog: DialogType) {
-    this.setState({dialog: dialog});
+    this.setState({ dialog: dialog });
   }
 
-  public async onSave(request){
+  public async onSave(request) {
 
     const result = await lastValueFrom(this.journalService.save(request));
 
-    this.setState({dialog: DialogType.None});
+    this.setState({ dialog: DialogType.None });
 
   }
 

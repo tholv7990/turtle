@@ -3,7 +3,7 @@ import * as Enumerable from 'linq';
 import { Entity } from '@libs/model';
 import { ReadRepository } from '../repository.interface';
 
-export class EntityReadRepository<T extends Entity> implements ReadRepository<T> {
+export class MongoEntityReadRepository<T extends Entity> implements ReadRepository<T> {
 
     constructor(
         protected document: Model<T>,

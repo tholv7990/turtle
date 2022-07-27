@@ -35,11 +35,11 @@
             </ng-template>
             <ng-template pTemplate="body" let-trade>
                 <tr>
-                    <td>{{trade?.account}}</td>
+                    <td>{{trade?.account?.name}}</td>
                     <td>{{trade?.symbol}}</td>
                     <td> <span [ngClass]="trade?.status">{{trade?.status}}</span></td>
                     <td> <span [ngClass]="trade?.side">{{trade?.side}}</span></td>
-                    <td>{{trade?.strategy}}</td>
+                    <td>{{trade?.strategy?.name | displayText}}</td>
                     <td>
                         <div class="flex flex-col">
                             <span class="text-sm"> {{trade?.open | dateTime:'date'}}</span>

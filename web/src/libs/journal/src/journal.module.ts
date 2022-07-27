@@ -11,9 +11,11 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AttachmentComponent } from '@libs/standalone';
 import { JournalService } from './services';
+import { JournalResolver } from './resolver';
+import { DisplayTextPipe } from '@libs/standalone.pipes';
 
  const routes = [
-  { path: '', component: JournalDashboardComponent }
+  { path: '', component: JournalDashboardComponent, resolve: { journal: JournalResolver } }
 ];
 
 @NgModule({
@@ -32,10 +34,12 @@ import { JournalService } from './services';
     DialogModule,
     DropdownModule,
     SelectButtonModule,
-    AttachmentComponent
+    AttachmentComponent,
+    DisplayTextPipe
   ],
   providers: [
-    JournalService
+    JournalService,
+    JournalResolver
   ]
 })
 export class JournalModule { }

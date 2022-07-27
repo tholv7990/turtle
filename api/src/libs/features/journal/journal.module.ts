@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { JournalController } from './journal.controller';
-import { JournalWriteRepository } from './repositories';
+import { JournalReadRepository, JournalWriteRepository } from './repositories';
 
 @Module({
   controllers: [JournalController],
   providers: [
-    JournalWriteRepository
+    JournalWriteRepository,
+    JournalReadRepository
   ]
 })
 export class JournalModule {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Journal, TradingSide } from '@libs/model';
+import { DateUtility, Journal, TradingSide, TradingStatus } from '@libs/model';
 import Decimal from 'decimal.js';
 import { lastValueFrom } from 'rxjs';
 import { JournalService } from '../../services';
@@ -85,7 +85,9 @@ export class JournalEditorComponent implements OnInit {
       note: [null, []],
       multipleR: [0, []],
       amount: [0, []],
-      size: [0, []]
+      size: [0, []],
+      open: [ DateUtility.getDateTime(new Date()) , []],
+      status: [TradingStatus.Open, []]
     })
   }
 
