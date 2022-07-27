@@ -1,35 +1,37 @@
 <div class="flex bg-inherit flex-col h-full w-full overflow-hidden" [formGroup]="form">
 
     <div class="p-custom-header">
-        <div class="field-row w-40">
-
-            <div class="field">
-                <label class="required">Account</label>
-                <div class="value">
-                    <p-dropdown [options]="accounts" formControlName="account" optionLabel="name"></p-dropdown>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Balance</label>
-                <div class="value">
-                  {{form?.value?.balance | currency}}
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Risk</label>
-                <div class="value">
-                   {{form?.value?.risk | percent}}
-                </div>
-            </div>
-        </div>
+        <span>New Trade</span>
         <button (click)="close.emit()" class="btn btn-close"><i class="fa fa-times"></i></button>
     </div>
 
     <div class="p-custom-body">
 
         <div class="fieldset content-left">
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Account</label>
+                    <div class="value">
+                        <p-dropdown [options]="accounts" formControlName="account" optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+    
+                <div class="field">
+                    <label>Balance</label>
+                    <div class="value">
+                      {{form?.value?.balance | currency}}
+                    </div>
+                </div>
+    
+                <div class="field">
+                    <label>Risk</label>
+                    <div class="value">
+                       {{form?.value?.risk | percent}}
+                    </div>
+                </div>
+            </div>
 
             <div class="field-row">
 
@@ -105,6 +107,78 @@
                     <label>Risk / Reward</label>
                     <div class="value">
                        {{form?.value?.multipleR}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Set Up</label>
+                    <div class="value">
+                       <input formControlName="entry" type="number" placeholder="<Entry>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Entry TF</label>
+                    <div class="value">
+                        <input type="number" formControlName="exist" placeholder="<Exist>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Trade Type</label>
+                    <div class="value">
+                        <input type="number" formControlName="target" placeholder="<Target>" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Entry Type</label>
+                    <div class="value">
+                       <input formControlName="entry" type="number" placeholder="<Entry>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Target Type</label>
+                    <div class="value">
+                        <input type="number" formControlName="exist" placeholder="<Exist>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Order Type</label>
+                    <div class="value">
+                        <input type="number" formControlName="target" placeholder="<Target>" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-row">
+
+                <div class="field">
+                    <label class="required">Rule Break</label>
+                    <div class="value">
+                       <input formControlName="entry" type="number" placeholder="<Entry>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Confluences</label>
+                    <div class="value">
+                        <input type="number" formControlName="exist" placeholder="<Exist>" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="required">Trends</label>
+                    <div class="value">
+                        <input type="number" formControlName="target" placeholder="<Target>" />
                     </div>
                 </div>
             </div>

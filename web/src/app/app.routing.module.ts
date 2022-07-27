@@ -33,6 +33,11 @@ const routes: Routes = [
         loadChildren: () => import('../libs/bulk.import').then(m => m.BulkImportModule),
         data: { title: 'Bulk Import', animation: 'import' }
       },
+      {
+        path: 'tags',
+        loadChildren: () => import('../libs/tags').then(m => m.TagsModule),
+        data: { title: 'Tags', animation: 'tags' }
+      },
       { path: '', redirectTo: 'journal', pathMatch: 'full'  }
     ]
   },
