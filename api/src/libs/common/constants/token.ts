@@ -9,6 +9,7 @@ export enum Tokens {
 }
 export enum SchemaTokens {
     Account = 'AccountSchema',
-    Journal = 'JournalSchema'
+    Journal = 'JournalSchema',
+    Tag = 'Tag'
 }
 

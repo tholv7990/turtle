@@ -1,3 +1,4 @@
+import { TagModule } from '@libs/features';
 import { AttachmentModule } from '@libs/features/attachment';
 import { AuthenticationModule } from '@libs/features/authentication';
 import { JournalModule } from '@libs/features/journal/journal.module';
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: '/journal',
         module: JournalModule
+      },
+      {
+        path: '/tag',
+        module: TagModule
       }
     ]
   }
@@ -31,6 +36,7 @@ export const routes: Routes = [
     AuthenticationModule,
     AttachmentModule,
     JournalModule,
+    TagModule,
 
     ConfigModule.forRoot(),
     RouterModule.register(routes),
