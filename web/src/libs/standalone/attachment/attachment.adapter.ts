@@ -33,18 +33,16 @@ export class AttachmentAdapter extends FilePickerAdapter {
     };
 
 
-    // bucket.upload(params,  (err, data) => {
-    //   if (err) {
-    //   console.log('EROOR: ',JSON.stringify( err));
-    //   return false;
-    //   }
-    //   console.log('File Uploaded.', data);
-    //   return true;
-    //   });
+    bucket.upload(params,  (err, data) => {
+      if (err) {
+      console.log('EROOR: ',JSON.stringify( err));
+      return false;
+      }
+      console.log('File Uploaded.', data);
+      return true;
+      });
 
     return of(null);
-
-
 
   }
 
